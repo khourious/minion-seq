@@ -1,4 +1,4 @@
-name: zika-seq
+name: minion-seq
 channels:
 - bioconda
 - esteinig

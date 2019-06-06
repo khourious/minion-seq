@@ -2,7 +2,11 @@
 import argparse, csv, subprocess, time
 import sys
 from Bio import SeqIO
+from cfg import config
 import os
+
+REF_GENOME = config["ref_genome"]
+PRIMER_SCHEME = config["primer_scheme"]
 
 def sample_to_run_data_mapping(samples_dir):
     '''
@@ -47,11 +51,11 @@ def fastq_to_fasta(sr_mapping, data_dir):
     for sample in sr_mapping:
         if first:
             run = sr_mapping[sample][0][0]
-            fastqs = os.listdir('%s%s/process/demux/' % (data_dir, run))
+            fastqs = os.listdir('%s%s/demux/' % (data_dir, run))
             for fastq in fastqs:
                 fasta = re.sub('q$', 'a', fastq)
                 print("Converting %s to %s." % (fastq, fasta))
-                call = "fastq_to_fasta -i %s%s/process/demux/%s -o %s%s/process/demux/%s" % (data_dir, run, fastq, data_dir, run, fasta)
+                call = "fastq_to_fasta -i %s%s/demux/%s -o %s%s/demux/%s" % (data_dir, run, fastq, data_dir, run, fasta)
                 subprocess.call(call, shell=True)
             first = False
 
@@ -61,12 +65,12 @@ def construct_sample_fastas(sr_mapping, data_dir, build_dir):
     import gzip
     for sample in sr_mapping:
         # Grab a matched pair of barcode fastas; global paths
-        fastas = [ '%s%s/process/demux/%s.fasta' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
+        fastas = [ '%s%s/demux/%s.fasta' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
         for fasta in fastas:
             if fasta.endswith('na.fasta'):
                 fastas.remove(fasta)
                 print('Remvoed 1 fasta ending in na.fasta')
-        assert len(fastas) == 2, 'Expected 2 .fasta files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/basecalled_reads/workspace/demux/' % (sample, len(fastas), data_dir, sr_mapping[sample][0])
+        assert len(fastas) == 2, 'Expected 2 .fasta files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/demux/' % (sample, len(fastas), data_dir, sr_mapping[sample][0])
         complete_fasta = '%s%s_complete.fasta' % (build_dir, sample)
         with open(complete_fasta, 'w+') as f:
             with open(fastas[0], 'r') as f1:
@@ -94,13 +98,13 @@ def construct_sample_fastqs(sr_mapping, data_dir, build_dir):
     import gzip
     for sample in sr_mapping:
         # Grab a matched pair of barcode fastqs; global paths
-        fastqs = [ '%s%s/process/demux/%s.fastq' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
+        fastqs = [ '%s%s/demux/%s.fastq' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
         for fastq in fastqs:
             if fastq.endswith('na.fastq'):
                 fastqs.remove(fastq)
                 print('Removed 1 fastq ending in na.fastq')
         print(fastqs)
-        assert len(fastqs) == 2, 'Expected 2 .fastq files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/basecalled_reads/workspace/demux/' % (sample, len(fastqs), data_dir, sr_mapping[sample][0])
+        assert len(fastqs) == 2, 'Expected 2 .fastq files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/demux/' % (sample, len(fastqs), data_dir, sr_mapping[sample][0])
         complete_fastq = '%s%s.fastq' % (build_dir, sample)
         # complete_fastq = '%s%s_complete.fastq' % (build_dir, sample)
         with open(complete_fastq, 'w+') as f:
@@ -134,9 +138,9 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalle
         # build consensus
         sample_stem = build_dir + sample
         if dimension == '2d':
-            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', 'pipeline/refs/KJ776791.2.fasta', sample_stem, 'pipeline/metadata/v2_500.amplicons.ver2.bed']
+            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', '%s', sample_stem, '%s' % (REF_GENOME, PRIMER_SCHEME)]
         elif dimension == '1d':
-            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', 'pipeline/refs/KJ776791.2.fasta', sample_stem, 'pipeline/metadata/v2_500.amplicons.ver2.bed', 'usvi-library8-1d-2017-03-31', raw_reads, basecalled_reads]
+            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', '%s', sample_stem, '%s', raw_reads, basecalled_reads % (REF_GENOME, PRIMER_SCHEME)]
         print(" ".join(call))
         subprocess.call(" ".join(call), shell=True)
         # annotate consensus
@@ -266,7 +270,7 @@ def per_base_error_rate(sr_mapping, build_dir):
                 f.write('Error rate: ' + str(error))
 
 if __name__=="__main__":
-    parser = argparse.ArgumentParser( description = "Bioinformatic pipeline for generating consensus genomes from demultiplexed Zika fastas" )
+    parser = argparse.ArgumentParser( description = "Bioinformatic pipeline for generating consensus genomes from demultiplexed fastas" )
     parser.add_argument( '--data_dir', type = str, default = "data/",
                             help="directory containing data; default is \'data/\'")
     parser.add_argument( '--samples_dir', type = str, default = "samples/",

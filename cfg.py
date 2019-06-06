@@ -1,17 +1,21 @@
 config = { 'raw_reads':
-                '/media/amphora/zika-seq/data/usvi-library9-2017-12-16/fast5',
+                '/home/laisepaixao/minionSeq/data/library',
            'dimension':
                 '1d',
            'demux_dir':
-                'data/usvi-library9-2017-12-16/process/demux',
+                '/home/laisepaixao/minionSeq/data/library/demux',
            'basecalled_reads':
-                'data/usvi-library9-2017-12-16/basecalled_reads',
+                '/home/laisepaixao/minionSeq/data/library/basecalled_reads',
             'build_dir':
-                'build',
+                '/home/laisepaixao/minionSeq/data/library/build',
            'samples':
-                ['COL02','VI25_1d'],
-           'albacore_config':
-                'r94_450bps_linear.cfg',
+                ['ZK0152','031074','030292a','030292b','030292c','NTC'],
+           'guppy_config':
+                'dna_r9.4.1_450bps_hac.cfg',
            'prefix':
-                'ZIKA_USVI'
+                'LIB',
+           'ref_genome':
+                '/home/laisepaixao/minionSeq/pipeline/refs/ref.fasta',
+           'primer_scheme':
+                '/home/laisepaixao/minionSeq/pipeline/metadata/primers.bed'
         }

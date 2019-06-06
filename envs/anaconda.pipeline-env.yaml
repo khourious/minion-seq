@@ -1,4 +1,4 @@
-name: zika-seq_pipeline
+name: minion-seq_pipeline
 channels:
   - biobuilds
   - r
