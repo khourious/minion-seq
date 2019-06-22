@@ -2,7 +2,7 @@
 import argparse, csv, subprocess, time
 import sys
 from Bio import SeqIO
-from cfg import config
+from cfg2 import config
 import os
 
 REF_GENOME = config["ref_genome"]

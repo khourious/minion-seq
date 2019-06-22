@@ -1,21 +1,17 @@
 config = { 'raw_reads':
-                '/home/laisepaixao/minionSeq/data/library',
+                '~/datasets/library',
            'dimension':
                 '1d',
            'demux_dir':
-                '/home/laisepaixao/minionSeq/data/library/demux',
+                '~/datasets/library/demux',
            'basecalled_reads':
-                '/home/laisepaixao/minionSeq/data/library/basecalled_reads',
+                '~/datasets/library/basecalled_reads',
             'build_dir':
-                '/home/laisepaixao/minionSeq/data/library/build',
+                '~/datasets/library/build',
            'samples':
-                ['ZK0152','031074','030292a','030292b','030292c','NTC'],
+                ['ID0001','ID0002','ID0003','ID0004','ID0005','NTC'],
            'guppy_config':
                 'dna_r9.4.1_450bps_hac.cfg',
            'prefix':
-                'LIB',
-           'ref_genome':
-                '/home/laisepaixao/minionSeq/pipeline/refs/ref.fasta',
-           'primer_scheme':
-                '/home/laisepaixao/minionSeq/pipeline/metadata/primers.bed'
+                'LIB'
         }

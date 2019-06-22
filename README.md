@@ -12,7 +12,7 @@ This repo contains scripts and files to run the bioinformatic analysis of genome
 
 1. Download and install the pipeline from the github repo:
 
-```
+```sh
 git clone https://github.com/lpmor22/minionSeq.git
 cd minionSeq
 ```
@@ -21,7 +21,7 @@ cd minionSeq
 
 2. Install requeriments:
 
-```
+```sh
 ./install_requirements.sh
 ```
 
@@ -92,14 +92,18 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 * ``samples`` : list of all samples that are included for the library that will be processed
 * ``guppy_config`` : name of the config file to be used during basecalling by Guppy (``guppy_basecaller --print_workflows``)
 * ``prefix`` : prefix to prepend onto output consensus genome filenames
+
+-----
+
+7. Open ``~/minionSeq/pipeline/scripts/cfg2.py`` and change config information as apropriate:
 * ``ref_genome`` : reference genome for alignment
 * ``primer_scheme`` : primer scheme used in sequencing
 
 -----
 
-7. Run the pipeline:
+8. Run the pipeline:
 
-  ```
+  ```sh
   source activate minion-seq
   snakemake --use-conda
   ```
@@ -108,7 +112,7 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 #### Tips
 
-If this is your first time using `conda` and `snakemake`, you'll need to add the path to your version of miniconda to your bash profile. To check whether a path already exists, do `echo $PATH`. If there isn't a path to conda in the bash profile already, make one using `export PATH=$PATH:your/path/to/miniconda3/bin`.
+If this is your first time using `conda` and `snakemake`, you'll need to add the path to your version of miniconda to your bash profile. To check whether a path already exists, do `echo $PATH`. If there isn't a path to conda in the bash profile already, make one using `export PATH=$PATH:~/softwares/miniconda3/bin`.
 
 If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will only run on the _single_ failed sample.
 
@@ -135,3 +139,5 @@ Next we run `pipeline.py`, which is a large script that references other custom 
 6. Use [`nanopolish`](https://github.com/jts/nanopolish) to call SNPs more accurately. This is a two step process. First step is using `nanopolish index` to create a map of how basecalled reads in `<sample ID>.fastq` are linked to the raw reads (signal level data). This step takes a while since for every sample all the program needs to iterate through all the raw reads.  Next, `nanopolish variants` will walk through the indexed `fastq` and a reference file, determine which SNPs are real given the signal level data, and write true SNPs to a VCF file.
 
 7. Run `margin_cons.py` to walk through the reference sequence, the trimmed bam file, and the VCF file. This script looks at read coverage at a site, masking the sequence with 'N' if the read depth is below a hardcoded threshold (we use a threshold of 20 reads). If a site has sufficient coverage to call the base, either the reference base or the variant base (as recorded in the VCF) is written to the consensus sequence. Consensus sequences are written to `<sample ID>_complete.fasta`. The proportion of the genome that has over 20x coverage and over 40x coverage is logged to `<sample_ID>-log.txt`.
+
+-----
