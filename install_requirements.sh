@@ -65,3 +65,7 @@ else
 fi
 
 echo "Done!"
+
+# To solving problems with Python 3.5 and Snakemake
+# conda install python==3.7
+# conda env ~/softwares/minionSeq/env/update anaconda.snakemake-env.yaml
