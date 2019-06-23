@@ -5,15 +5,15 @@ import os
 
 DEMUX_DIR=config['demux_dir']
 BASECALLED_READS=config['basecalled_reads']
-RAW_READS = config["raw_reads"]
-BUILD_DIR = config["build_dir"]
+RAW_READS = config['raw_reads']
+BUILD_DIR = config['build_dir']
 
 def get_minion_analysis():
-    call = "find %s -name \"*.fast5\" | head -n 1" % (config["raw_reads"])
+    call = "find %s -name \"*.fast5\" | head -n 1" % (config['raw_reads'])
     fname = subprocess.check_output(call,shell=True)
     if type(fname) != str:
         fname = str(fname)[2:-3]
-    fname = fname.replace(config["raw_reads"],"")[1:]
+    fname = fname.replace(config['raw_reads'],"")[1:]
     return fname
 
 GET_MINION_ANALYSIS=get_minion_analysis()
@@ -38,11 +38,11 @@ rule basecall:
         "guppy_basecaller -i %s -c {params.cfg} -r --cpu_threads_per_caller 12 --qscore_filtering -s %s" % (RAW_READS, BASECALLED_READS)
 
 def get_fastq_file():
-    call = "find %s -name \"*.fast5\" | head -n 1" % (config["basecalled_reads"]+"/pass")
+    call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
     fname = subprocess.check_output(call,shell=True)
     if type(fname) != str:
         fname = str(fname)[2:-3]
-    fname = fname.replace(config["basecalled_reads"]+"/pass","")[1:]
+    fname = fname.replace(config['basecalled_reads']+"/pass","")[1:]
     return fname
 	
 FASTQ=get_fastq_file()
@@ -79,4 +79,3 @@ rule pipeline:
         "envs/anaconda.pipeline-env.yaml"
     shell:
         "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads}"
-		
