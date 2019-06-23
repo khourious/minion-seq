@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Install minion-seq requirements
+# Install minionSeq requirements
+echo "Installing minionSeq requirements"
 
 # Install Guppy
 
@@ -16,6 +17,12 @@ then
   sudo apt-get update
   apt-get install ont-guppy
   apt-get install ont-guppy-cpu
+  if [[ -z "$(which guppy_basecaller)" ]]
+  then
+    echo "Successfully installed Guppy"
+  else
+    echo "Error installing Guppy: skipping for now"
+  fi
 else
   echo "Guppy already installed"
 fi
@@ -24,8 +31,9 @@ fi
 
 if [[ -z "$(which nanopolish)" ]]
 then
-  cd .. && git clone --recursive https://github.com/jts/nanopolish.git && cd nanopolish && make
-  export $PATH=$PATH:~/softwares/nanopolish/
+  echo "Installing Nanopolish"
+  cd ~/softwares/ && git clone --recursive https://github.com/jts/nanopolish.git && cd nanopolish && make
+  export PATH=~/softwares/nanopolish:$PATH
   if [[ -z "$(which nanopolish)" ]]
   then
     echo "Successfully installed Nanopolish"
@@ -48,6 +56,7 @@ then
   CONDA_BIN_DIR=$CONDA_DIR/bin
   export PATH=$CONDA_BIN_DIR:$PATH
   rm -rf $CONDA_SCRIPT
+  export PATH=~/softwares/miniconda3/bin:$PATH
   if [[ -z "$(which conda)" ]]
   then
     echo "Successfully installed Miniconda3"
@@ -61,29 +70,21 @@ fi
 # Environment in which Snakemake will be run
 
 echo "Installing conda environment: minion-seq"
-conda env create -f envs/anaconda.snakemake-env.yaml
+export PATH=~/softwares/miniconda3/bin:$PATH
+conda env create -f ~/softwares/minionSeq/envs/anaconda.snakemake-env.yaml
 echo "Installing conda environment: minoin-seq_pipeline"
-conda env create -f envs/anaconda.pipeline-env.yaml
+export PATH=~/softwares/miniconda3/bin:$PATH
+conda env create -f ~/softwares/minionSeq/envs/anaconda.pipeline-env.yaml
 
-# To solving problems with Python 3.5 and Snakemake
+# Snakemake problems
 
-echo "Installing Python 3.7"
+echo "To solving instalation problems of the Snakemake"
+
+export PATH=~/softwares/nanopolish:$PATH
+export PATH=~/softwares/miniconda3/bin:$PATH
+source activate minion-seq
 conda install -c anaconda python=3.7
-echo "Installing Snakemake"
 conda install -c bioconda -c conda-forge snakemake
-echo "Update minion-seq"
-conda env update -f envs/anaconda.snakemake-env.yaml
-
-# To active minion-seq environment
-
-#export PATH=$PATH:~/softwares/nanopolish
-#export PATH=$PATH:~/softwares/miniconda3/bin
-#source activate minion-seq
-#echo "Installing Python 3.7"
-#conda install -c anaconda python=3.7
-#echo "Installing Snakemake"
-#conda install -c bioconda -c conda-forge snakemake
-#echo "Update minion-seq"
-#conda env update --file envs/anaconda.snakemake-env.yaml
+conda env update --file envs/anaconda.snakemake-env.yaml
 
 echo "Done!"
