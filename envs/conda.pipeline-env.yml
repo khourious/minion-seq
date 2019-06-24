@@ -1,9 +1,8 @@
 name: minion-seq_pipeline
 channels:
+  - anaconda
   - biobuilds
-  - r
   - bioconda
-  - defaults
 dependencies:
   - biopython
   - bwa

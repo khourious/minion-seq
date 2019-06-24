@@ -1,19 +1,18 @@
 name: minion-seq
 channels:
+  - anaconda
   - bioconda
-  - esteinig
-  - defaults
 dependencies:
   - biopython
   - boto
   - boto3
   - drmaa
   - ipython
-  - pysam
-  - python=3*
   - numpy
   - pandas
-  - psutil
+  - pip
   - porechop
-  - pip:
-    - snakemake
+  - psutil
+  - pysam
+  - python=3.6
+  - snakemake
