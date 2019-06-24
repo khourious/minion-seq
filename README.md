@@ -8,7 +8,7 @@ This repo contains scripts and files to run the bioinformatic analysis of genome
 
 -----
 
-# Setting up and running the pipeline
+## Setting up and running the pipeline
 
 1. Download and install the pipeline from the github repo:
 
@@ -21,19 +21,17 @@ cd minionSeq
 
 2. Install requeriments:
 
-```sh
-./install_requirements.sh
-```
-
-If `./install_requirements.sh` fails, you may need to run `chmod 700 install_requirements.sh` before rerunning.
+For Ubuntu 16: ``sh ./install_Ubuntu16.sh``
+For Ubuntu 18: ``sh ./install_Ubuntu18.sh``
+* If fails, you may need to run `chmod 700` before rerunning.
 
 -----
 
-3. Input `reference genome` for the pipeline in the refs directory: ``~/minionSeq/pipeline/refs/``
+3. Input `reference genome` for the pipeline in the refs directory: ``minionSeq/pipeline/refs/``
 
 -----
 
-4. Input `primer scheme` for the pipeline in the metadata directory: ``~/minionSeq/pipeline/metadata/``
+4. Input `primer scheme` for the pipeline in the metadata directory: ``minionSeq/pipeline/metadata/``
 
 ### `primer-scheme.bed`
 
@@ -46,7 +44,7 @@ Must be `bed` formatted. Keyed off of column headers rather than column order.
 
 -----
 
-5. Input `sample metadata` for the pipeline in the samples directory: ``~/minionSeq/samples/``
+5. Input `sample metadata` for the pipeline in the samples directory: ``minionSeq/samples/``
     - ``samples.tsv`` - line list of sample metadata
     - ``runs.tsv`` - line list of run metadata
 
@@ -84,7 +82,7 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 -----
 
-6. Open ``~/minionSeq/cfg.py`` and change config information as apropriate:
+6. Open ``minionSeq/cfg.py`` and change config information as apropriate:
 * ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories
 * ``dimension`` : sequencing dimension (1d or 2d)
 * ``demux_dir`` : path to directory where demultiplexing will take place
@@ -95,7 +93,7 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 -----
 
-7. Open ``~/minionSeq/pipeline/scripts/cfg2.py`` and change config information as apropriate:
+7. Open ``minionSeq/pipeline/scripts/cfg2.py`` and change config information as apropriate:
 * ``ref_genome`` : reference genome for alignment
 * ``primer_scheme`` : primer scheme used in sequencing
 
@@ -112,9 +110,7 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 #### Tips
 
-If this is your first time using `conda` and `snakemake`, you'll need to add the path to your version of miniconda to your bash profile. To check whether a path already exists, do `echo $PATH`. If there isn't a path to conda in the bash profile already, make one using `export PATH=$PATH:~/softwares/miniconda3/bin`.
-
-If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will only run on the _single_ failed sample.
+If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will *only run on the single* failed sample.
 
 -----
 
@@ -122,7 +118,7 @@ If you had a single sample that failed, rather than re-running the pipeline on a
 
 When Guppy basecalls the raw `fast5` reads, it makes a workspace directory, which then contains a `pass` and a `fail` directory. Both the `pass` and the `fail` directory contain fastq files. The `fastq` in the pass directory contains the high quality reads (Q score >= 7), and the pipeline only uses this `fastq` files.
 
-The basecalled `fastq` files serves as input to [`porechop`](https://github.com/rrwick/Porechop), the program which performs barcode demultiplexing. Porechop writes a single `fastq` file for each barcode to the `demux` directory you created.
+The basecalled `fastq` files serves as input to porechop, the program which performs barcode demultiplexing. Porechop writes a single `fastq` file for each barcode to the `demux` directory you created.
 
 Next we run `pipeline.py`, which is a large script that references other custom python scripts and shell scripts to do run every other step of the pipeline. This is what is occurring in `pipeline.py`.
 
@@ -136,7 +132,7 @@ Next we run `pipeline.py`, which is a large script that references other custom 
 
 5. Trim primer sequences out of the bam file using the custom script `align_trim.py`. Output files are labeled `<sample ID>.trimmed.sorted.bam`.
 
-6. Use [`nanopolish`](https://github.com/jts/nanopolish) to call SNPs more accurately. This is a two step process. First step is using `nanopolish index` to create a map of how basecalled reads in `<sample ID>.fastq` are linked to the raw reads (signal level data). This step takes a while since for every sample all the program needs to iterate through all the raw reads.  Next, `nanopolish variants` will walk through the indexed `fastq` and a reference file, determine which SNPs are real given the signal level data, and write true SNPs to a VCF file.
+6. Use nanopolish to call SNPs more accurately. This is a two step process. First step is using `nanopolish index` to create a map of how basecalled reads in `<sample ID>.fastq` are linked to the raw reads (signal level data). This step takes a while since for every sample all the program needs to iterate through all the raw reads.  Next, `nanopolish variants` will walk through the indexed `fastq` and a reference file, determine which SNPs are real given the signal level data, and write true SNPs to a VCF file.
 
 7. Run `margin_cons.py` to walk through the reference sequence, the trimmed bam file, and the VCF file. This script looks at read coverage at a site, masking the sequence with 'N' if the read depth is below a hardcoded threshold (we use a threshold of 20 reads). If a site has sufficient coverage to call the base, either the reference base or the variant base (as recorded in the VCF) is written to the consensus sequence. Consensus sequences are written to `<sample ID>_complete.fasta`. The proportion of the genome that has over 20x coverage and over 40x coverage is logged to `<sample_ID>-log.txt`.
 
