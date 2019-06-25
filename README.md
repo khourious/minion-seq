@@ -11,27 +11,28 @@ This repo contains scripts and files to run the bioinformatic analysis of genome
 ## Setting up and running the pipeline
 
 1. Download and install the pipeline from the github repo:
-
 ```sh
 git clone https://github.com/lpmor22/minionSeq.git
 cd minionSeq
+git checkout create_wrap
 ```
+- If you are running Ubuntu 16:
+```sh
+sh ./install_Ubuntu16.sh
+```
+- If you are running Ubuntu 18:
+```sh
+sh ./install_Ubuntu18.sh
+```
+Note: If fails, you may need to run `chmod 700` before rerunning.
 
 -----
 
-2. Install requeriments:
-
-For Ubuntu 16: ``sh ./install_Ubuntu16.sh``
-For Ubuntu 18: ``sh ./install_Ubuntu18.sh``
-* If fails, you may need to run `chmod 700` before rerunning.
+2. Input `reference genome` for the pipeline in the refs directory: ``minionSeq/pipeline/refs/``
 
 -----
 
-3. Input `reference genome` for the pipeline in the refs directory: ``minionSeq/pipeline/refs/``
-
------
-
-4. Input `primer scheme` for the pipeline in the metadata directory: ``minionSeq/pipeline/metadata/``
+3. Input `primer scheme` for the pipeline in the metadata directory: ``minionSeq/pipeline/metadata/``
 
 ### `primer-scheme.bed`
 
@@ -44,7 +45,7 @@ Must be `bed` formatted. Keyed off of column headers rather than column order.
 
 -----
 
-5. Input `sample metadata` for the pipeline in the samples directory: ``minionSeq/samples/``
+4. Input `sample metadata` for the pipeline in the samples directory: ``minionSeq/samples/``
     - ``samples.tsv`` - line list of sample metadata
     - ``runs.tsv`` - line list of run metadata
 
@@ -82,24 +83,24 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 -----
 
-6. Open ``minionSeq/cfg.py`` and change config information as apropriate:
-* ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories
+5. Open ``minionSeq/cfg.py`` and change config information as apropriate:
+* ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories (``minionSeq/data``)
 * ``dimension`` : sequencing dimension (1d or 2d)
 * ``demux_dir`` : path to directory where demultiplexing will take place
-* ``build_dir`` : path to output location
+* ``build_dir`` : path to output location (``minionSeq/build``)
 * ``samples`` : list of all samples that are included for the library that will be processed
 * ``guppy_config`` : name of the config file to be used during basecalling by Guppy (``guppy_basecaller --print_workflows``)
 * ``prefix`` : prefix to prepend onto output consensus genome filenames
 
 -----
 
-7. Open ``minionSeq/pipeline/scripts/cfg2.py`` and change config information as apropriate:
+6. Open ``minionSeq/pipeline/scripts/cfg2.py`` and change config information as apropriate:
 * ``ref_genome`` : reference genome for alignment
 * ``primer_scheme`` : primer scheme used in sequencing
 
 -----
 
-8. Run the pipeline:
+7. Run the pipeline:
 
   ```sh
   source activate minion-seq
@@ -110,7 +111,9 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 #### Tips
 
-If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will *only run on the single* failed sample.
+* If the computer is shutdown or the snakemake process is "finished", the files are not deleted. However, snakemake creates a hidden metadata file with execution information. Then, to restart the snakemake process from the stop point, you can use ``snakemake --use-conda --rerun-incomplete``.
+
+* If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will *only run on the single* failed sample.
 
 -----
 
