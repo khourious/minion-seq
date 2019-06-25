@@ -5,8 +5,8 @@ from Bio import SeqIO
 from cfg2 import config
 import os
 
-REF_GENOME = config["ref_genome"]
-PRIMER_SCHEME = config["primer_scheme"]
+REF_GENOME = config['ref_genome']
+PRIMER_SCHEME = config['primer_scheme']
 
 def sample_to_run_data_mapping(samples_dir):
     '''

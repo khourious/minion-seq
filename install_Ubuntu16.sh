@@ -50,5 +50,9 @@ echo "Installing conda environment: minion-seq"
 conda env create -f $HOME/softwares/minionSeq/envs/conda.snakemake-env.yml
 echo "Installing conda environment: minoin-seq_pipeline"
 conda env create -f $HOME/softwares/minionSeq/envs/conda.pipeline-env.yml
+echo "Updating Python 3.7"
+conda install -c anaconda python=3.7
+echo "Updating Snakemake 5.5"
+conda install -c bioconda -c conda-forge snakemake=5.5
 
 echo "Done!"

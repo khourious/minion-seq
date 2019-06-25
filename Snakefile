@@ -72,6 +72,6 @@ rule pipeline:
     output:
         directory("%s" % (BUILD_DIR))
     conda:
-        "envs/conda.pipeline-env.yaml"
+        "envs/conda.pipeline-env.yml"
     shell:
         "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads}"
