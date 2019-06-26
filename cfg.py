@@ -1,22 +1,22 @@
 config = { 'raw_reads':
-                '/home/laisepaixao/softwares/minionSeq/data/zika-library12-2019-05-22/',
+                '$HOME/softwares/minionSeq/data/library/',
            'dimension':
                 '1d',
            'demux_dir':
-                '/home/laisepaixao/softwares/minionSeq/data/zika-library12-2019-05-22/demux',
+                '$HOME/softwares/minionSeq/data/library/demux',
            'basecalled_reads':
-                '/home/laisepaixao/softwares/minionSeq/data/basecalled_reads',
+                '$HOME/softwares/minionSeq/data/basecalled_reads',
            'build_dir':
-                '/home/laisepaixao/softwares/minionSeq/build',
+                '$HOME/softwares/minionSeq/build',
            'samples':
-                ['TRDP173','TRDP238','TRDP252','TRDP256','TRDP274','NTC12'],
+                ['ID0001','ID0002','ID0003','ID0004','ID0005','NTC'],
            'guppy_config':
                 'dna_r9.4.1_450bps_hac.cfg',
            'prefix':
-                'LIB12',
+                'LIB',
            'ref_genome':
-                '/home/laisepaixao/softwares/minionSeq/pipeline/refs/ref_zika_KJ776791.fasta',
+                '$HOME/softwares/minionSeq/pipeline/refs/ref_zika_KJ776791.fasta',
            'primer_scheme':
-                '/home/laisepaixao/softwares/minionSeq/metadata/ZIKA_v2_500.amplicons.ver2.bed'
+                '$HOME/softwares/minionSeq/pipeline/metadata/ZIKA_v2_500.amplicons.ver2.bed'
 
         }

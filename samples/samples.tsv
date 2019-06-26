@@ -35,16 +35,16 @@ ZK0141	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
 ZK0141	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
 NTC3	Zika Virus	02/03/2018	Brazil	Bahia	Salvador	No Template Control	minion
 NTC3	Zika Virus	02/03/2018	Brazil	Bahia	Salvador	No Template Control	minion
-ZK0075	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0075	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0110	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0110	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0111	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0111	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0128	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0128	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0141	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0141	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0075_2	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0075_2	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0110_2	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0110_2	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0111_2	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0111_2	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0128_2	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0128_2	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0141_2	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0141_2	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
 NTC4	Zika Virus	02/03/2018	Brazil	Bahia	Salvador	No Template Control	minion
 NTC4	Zika Virus	02/03/2018	Brazil	Bahia	Salvador	No Template Control	minion
 ZK0085	Chikungunya Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Plasma	minion
@@ -61,14 +61,14 @@ NTC7	Chikungunya Virus	02/03/2018	Brazil	Bahia	Salvador	No Template Control	mini
 NTC7	Chikungunya Virus	02/03/2018	Brazil	Bahia	Salvador	No Template Control	minion
 ZIKA_03.0176	Zika Virus	28/09/2016	Brazil	Bahia	Salvador	Breast Milk	minion
 ZIKA_03.0176	Zika Virus	28/09/2016	Brazil	Bahia	Salvador	Breast Milk	minion
-ZK0075	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0075	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0075_3	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0075_3	Zika Virus	07/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
 ZK0099	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
 ZK0099	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0110	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0110	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0152	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
-ZK0152	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0110_3	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0110_3	Zika Virus	08/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0152_2	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
+ZK0152_2	Zika Virus	09/04/2016	Brazil	Bahia	Senhor do Bonfim	Whole Blood	minion
 NTC9	Zika Virus	10/09/2018	Brazil	Bahia	Salvador	No Template Control	minion
 NTC9	Zika Virus	10/09/2018	Brazil	Bahia	Salvador	No Template Control	minion
 ZK0038	Chikungunya Virus	09/04/2016	Brazil	Piauí	Teresina	Plasma	minion
@@ -107,15 +107,15 @@ TRDP274	Zika Virus	20/05/2015	Brazil	Bahia	Salvador	Plasma	minion
 TRDP274	Zika Virus	20/05/2015	Brazil	Bahia	Salvador	Plasma	minion
 NTC12	Zika Virus	22/05/2019	Brazil	Bahia	Salvador	No Template Control	minion
 NTC12	Zika Virus	22/05/2019	Brazil	Bahia	Salvador	No Template Control	minion
-TRDP282	Zika Virus	2015-05-21	Brazil	Bahia	Salvador	Plasma	minion
-TRDP282	Zika Virus	2015-05-21	Brazil	Bahia	Salvador	Plasma	minion
-TRDP300	Zika Virus	2015-05-22	Brazil	Bahia	Salvador	Plasma	minion
-TRDP300	Zika Virus	2015-05-22	Brazil	Bahia	Salvador	Plasma	minion
-TRDP309	Zika Virus	2015-05-26	Brazil	Bahia	Salvador	Plasma	minion
-TRDP309	Zika Virus	2015-05-26	Brazil	Bahia	Salvador	Plasma	minion
-TRDP317	Zika Virus	2015-05-26	Brazil	Bahia	Salvador	Plasma	minion
-TRDP317	Zika Virus	2015-05-26	Brazil	Bahia	Salvador	Plasma	minion
-TRDP333	Zika Virus	2015-05-27	Brazil	Bahia	Salvador	Plasma	minion
-TRDP333	Zika Virus	2015-05-27	Brazil	Bahia	Salvador	Plasma	minion
-NTC13	Zika Virus	2015-05-23	Brazil	Bahia	Salvador	No Template Control	minion
-NTC13	Zika Virus	2015-05-23	Brazil	Bahia	Salvador	No Template Control	minion
+TRDP282	Zika Virus	21/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP282	Zika Virus	21/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP300	Zika Virus	22/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP300	Zika Virus	22/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP309	Zika Virus	26/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP309	Zika Virus	26/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP317	Zika Virus	26/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP317	Zika Virus	26/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP333	Zika Virus	27/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+TRDP333	Zika Virus	27/05/2015	Brazil	Bahia	Salvador	Plasma	minion
+NTC13	Zika Virus	23/05/2015	Brazil	Bahia	Salvador	No Template Control	minion
+NTC13	Zika Virus	23/05/2015	Brazil	Bahia	Salvador	No Template Control	minion
