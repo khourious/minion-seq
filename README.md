@@ -6,7 +6,7 @@
 
 This repo contains scripts and files to run the bioinformatic analysis of genome sequencing using MinION, and was built based on "[Experimental protocols and bioinformatic pipelines for Zika genome sequencing](https://github.com/blab/zika-seq)" of [Bedford Lab](https://bedford.io/projects/zika-seq).
 
------
+---
 
 ## Setting up and running the pipeline
 
@@ -26,11 +26,11 @@ sh ./install_Ubuntu18.sh
 ```
 Note: If fails, you may need to run `chmod 700` before rerunning.
 
------
+---
 
 2. Input `reference genome` for the pipeline in the refs directory: ``minionSeq/pipeline/refs/``
 
------
+---
 
 3. Input `primer scheme` for the pipeline in the metadata directory: ``minionSeq/pipeline/metadata/``
 
@@ -43,7 +43,7 @@ Must be `bed` formatted. Keyed off of column headers rather than column order.
 | KP164568  | 115            | 137          | CHIK_400_1_FORWARD | +            |
 | KP164568  | 428            | 451          | CHIK_400_1_REVERSE | -            
 
------
+---
 
 4. Input `sample metadata` for the pipeline in the samples directory: ``minionSeq/samples/``
     - ``samples.tsv`` - line list of sample metadata
@@ -81,7 +81,7 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 | library1-2019-05-03 | BC11       | NTC          | primer_scheme |
 | library1-2019-05-03 | BC12       | NTC          | primer_scheme |
 
------
+---
 
 5. Open ``minionSeq/cfg.py`` and change config information as apropriate:
 * ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories (``minionSeq/data``)
@@ -91,23 +91,19 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 * ``samples`` : list of all samples that are included for the library that will be processed
 * ``guppy_config`` : name of the config file to be used during basecalling by Guppy (``guppy_basecaller --print_workflows``)
 * ``prefix`` : prefix to prepend onto output consensus genome filenames
+* ``ref_genome`` : reference genome for alignment (``minionSeq/pipeline/refs``)
+* ``primer_scheme`` : primer scheme used in sequencing (``minionSeq/pipeline/metadata``)
 
------
+---
 
-6. Open ``minionSeq/pipeline/scripts/cfg2.py`` and change config information as apropriate:
-* ``ref_genome`` : reference genome for alignment
-* ``primer_scheme`` : primer scheme used in sequencing
-
------
-
-7. Run the pipeline:
+6. Run the pipeline:
 
   ```sh
   source activate minion-seq
   snakemake --use-conda
   ```
 
------
+---
 
 #### Tips
 
@@ -115,7 +111,7 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 * If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will *only run on the single* failed sample.
 
------
+---
 
 #### Inside the pipeline...
 
@@ -139,4 +135,89 @@ Next we run `pipeline.py`, which is a large script that references other custom 
 
 7. Run `margin_cons.py` to walk through the reference sequence, the trimmed bam file, and the VCF file. This script looks at read coverage at a site, masking the sequence with 'N' if the read depth is below a hardcoded threshold (we use a threshold of 20 reads). If a site has sufficient coverage to call the base, either the reference base or the variant base (as recorded in the VCF) is written to the consensus sequence. Consensus sequences are written to `<sample ID>_complete.fasta`. The proportion of the genome that has over 20x coverage and over 40x coverage is logged to `<sample_ID>-log.txt`.
 
------
+---
+
+### Full usage
+
+* align_trim.py
+```sh
+usage: align_trim.py [-h] [--normalise NORMALISE] [--report REPORT] [--start] 
+                     [--verbose]
+                     bedfile
+
+Trim alignments from an amplicon scheme.
+
+positional arguments:
+  bedfile               BED file containing the amplicon scheme
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --normalise NORMALISE Subsample to n coverage
+  --report REPORT       Output report to file
+  --start               Trim to start of primers instead of ends
+  --verbose             Debug mode
+  ```
+* depth_process.py
+```sh
+usage: depth_process.py [-h] [-d DIRECTORY]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DIRECTORY, --directory DIRECTORY
+                        Global path to directory of native barcode base-called
+                        .fast5's
+```
+* get-alignment.py
+```sh
+usage: get-alignment.py [-h] [--minfreq MINFREQ]
+
+Process some integers.
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --minfreq MINFREQ  an integer for the accumulator
+  ```
+  * pipeline.py
+  ```sh
+  usage: pipeline.py [-h] [--data_dir DATA_DIR] [--samples_dir SAMPLES_DIR]
+                   [--build_dir BUILD_DIR] [--prefix PREFIX]
+                   [--samples [SAMPLES [SAMPLES ...]]] [--dimension DIMENSION]
+                   [--run_steps [RUN_STEPS [RUN_STEPS ...]]]
+                   [--raw_reads RAW_READS]
+                   [--basecalled_reads BASECALLED_READS]
+                   [--reference_genome REFERENCE_GENOME]
+                   [--primer_scheme PRIMER_SCHEME]
+
+Bioinformatic pipeline for generating consensus genomes from demultiplexed
+fastas
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --data_dir DATA_DIR   directory containing data; default is 'data/'
+  --samples_dir SAMPLES_DIR
+                        directory containing samples and runs TSVs; default is
+                        'samples/'
+  --build_dir BUILD_DIR
+                        directory for output data; default is 'build/'
+  --prefix PREFIX       string to be prepended onto all output consensus
+                        genome files; default is 'LIB'
+  --samples [SAMPLES [SAMPLES ...]]
+                        sample to be run
+  --dimension DIMENSION
+                        dimension of library to be fun; options are '1d' or
+                        '2d', default is '2d'
+  --run_steps [RUN_STEPS [RUN_STEPS ...]]
+                        Numbered steps that should be run (i.e. 1 2 3): 1.
+                        Construct sample fastas 2. Construct sample fastqs 3.
+                        Process sample fastas 4. Gather consensus fastas 5.
+                        Generate overlap graphs 6. Calculate per-base error
+                        rates
+  --raw_reads RAW_READS
+                        directory containing raw .fast5 reads
+  --basecalled_reads BASECALLED_READS
+                        directory containing basecalled reads
+  --reference_genome REFERENCE_GENOME
+                        genome reference for alignment
+  --primer_scheme PRIMER_SCHEME
+                        primer scheme of minion sequencing
+```
