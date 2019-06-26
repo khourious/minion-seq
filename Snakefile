@@ -66,7 +66,9 @@ rule pipeline:
         samples = _get_samples,
         raw = config['raw_reads'],
         build = BUILD_DIR,
-        basecalled_reads = config['basecalled_reads']
+        basecalled_reads = config['basecalled_reads'],
+	reference = config['ref_genome'],
+	primer = config['primer_scheme']
     input:
         "%s" % (DEMUX_DIR)
     output:
@@ -74,4 +76,4 @@ rule pipeline:
     conda:
         "envs/conda.pipeline-env.yml"
     shell:
-        "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads}"
+        "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --ref_gen {params.reference} --primer_scheme {params.primer}"

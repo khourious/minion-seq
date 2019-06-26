@@ -9,8 +9,8 @@ zika-library1-2018-01-09	BC07	ZIKA_03.0292b	ZIKA_v2_500.amplicons.ver2	minion
 zika-library1-2018-01-09	BC08	ZIKA_03.0292b	ZIKA_v2_500.amplicons.ver2	minion
 zika-library1-2018-01-09	BC09	ZIKA_03.0292c	ZIKA_v2_500.amplicons.ver2	minion
 zika-library1-2018-01-09	BC10	ZIKA_03.0292c	ZIKA_v2_500.amplicons.ver2	minion
-zika-library1-2018-01-09	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library1-2018-01-09	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library1-2018-01-09	BC11	NTC1	ZIKA_v2_500.amplicons.ver2	minion
+zika-library1-2018-01-09	BC12	NTC1	ZIKA_v2_500.amplicons.ver2	minion
 zika-library2-2018-01-15	BC01	ZIKA_03.0430	ZIKA_v2_500.amplicons.ver2	minion
 zika-library2-2018-01-15	BC02	ZIKA_03.0430	ZIKA_v2_500.amplicons.ver2	minion
 zika-library2-2018-01-15	BC03	ZIKA_03.0058	ZIKA_v2_500.amplicons.ver2	minion
@@ -21,8 +21,8 @@ zika-library2-2018-01-15	BC07	ZK0099	ZIKA_v2_500.amplicons.ver2	minion
 zika-library2-2018-01-15	BC08	ZK0099	ZIKA_v2_500.amplicons.ver2	minion
 zika-library2-2018-01-15	BC09	ZIKA_03.0176	ZIKA_v2_500.amplicons.ver2	minion
 zika-library2-2018-01-15	BC10	ZIKA_03.0176	ZIKA_v2_500.amplicons.ver2	minion
-zika-library2-2018-01-15	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library2-2018-01-15	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library2-2018-01-15	BC11	NTC2	ZIKA_v2_500.amplicons.ver2	minion
+zika-library2-2018-01-15	BC12	NTC2	ZIKA_v2_500.amplicons.ver2	minion
 zika-library3-2018-02-28	BC01	ZK0075	ZIKA_v2_500.amplicons.ver2	minion
 zika-library3-2018-02-28	BC02	ZK0075	ZIKA_v2_500.amplicons.ver2	minion
 zika-library3-2018-02-28	BC03	ZK0110	ZIKA_v2_500.amplicons.ver2	minion
@@ -33,8 +33,8 @@ zika-library3-2018-02-28	BC07	ZK0128	ZIKA_v2_500.amplicons.ver2	minion
 zika-library3-2018-02-28	BC08	ZK0128	ZIKA_v2_500.amplicons.ver2	minion
 zika-library3-2018-02-28	BC09	ZK0141	ZIKA_v2_500.amplicons.ver2	minion
 zika-library3-2018-02-28	BC10	ZK0141	ZIKA_v2_500.amplicons.ver2	minion
-zika-library3-2018-02-28	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library3-2018-02-28	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library3-2018-02-28	BC11	NTC3	ZIKA_v2_500.amplicons.ver2	minion
+zika-library3-2018-02-28	BC12	NTC3	ZIKA_v2_500.amplicons.ver2	minion
 zika-library4-2018-03-02	BC01	ZK0075	ZIKA_v2_500.amplicons.ver2	minion
 zika-library4-2018-03-02	BC02	ZK0075	ZIKA_v2_500.amplicons.ver2	minion
 zika-library4-2018-03-02	BC03	ZK0110	ZIKA_v2_500.amplicons.ver2	minion
@@ -45,8 +45,8 @@ zika-library4-2018-03-02	BC07	ZK0128	ZIKA_v2_500.amplicons.ver2	minion
 zika-library4-2018-03-02	BC08	ZK0128	ZIKA_v2_500.amplicons.ver2	minion
 zika-library4-2018-03-02	BC09	ZK0141	ZIKA_v2_500.amplicons.ver2	minion
 zika-library4-2018-03-02	BC10	ZK0141	ZIKA_v2_500.amplicons.ver2	minion
-zika-library4-2018-03-02	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library4-2018-03-02	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library4-2018-03-02	BC11	NTC4	ZIKA_v2_500.amplicons.ver2	minion
+zika-library4-2018-03-02	BC12	NTC4	ZIKA_v2_500.amplicons.ver2	minion
 chikv-library7-2018-03-11	BC01	ZK0085	CHIKV_primal_KP164568.bed	minion
 chikv-library7-2018-03-11	BC02	ZK0085	CHIKV_primal_KP164568.bed	minion
 chikv-library7-2018-03-11	BC03	ZK0046	CHIKV_primal_KP164568.bed	minion
@@ -57,8 +57,8 @@ chikv-library7-2018-03-11	BC07	ZK0135	CHIKV_primal_KP164568.bed	minion
 chikv-library7-2018-03-11	BC08	ZK0135	CHIKV_primal_KP164568.bed	minion
 chikv-library7-2018-03-11	BC09	ZK0171	CHIKV_primal_KP164568.bed	minion
 chikv-library7-2018-03-11	BC10	ZK0171	CHIKV_primal_KP164568.bed	minion
-chikv-library7-2018-03-11	BC11	NTC	CHIKV_primal_KP164568.bed	minion
-chikv-library7-2018-03-11	BC12	NTC	CHIKV_primal_KP164568.bed	minion
+chikv-library7-2018-03-11	BC11	NTC7	CHIKV_primal_KP164568.bed	minion
+chikv-library7-2018-03-11	BC12	NTC7	CHIKV_primal_KP164568.bed	minion
 zika-library9-2018-09-10	BC01	ZIKA_03.0176	ZIKA_v2_500.amplicons.ver2	minion
 zika-library9-2018-09-10	BC02	ZIKA_03.0176	ZIKA_v2_500.amplicons.ver2	minion
 zika-library9-2018-09-10	BC03	ZK0075	ZIKA_v2_500.amplicons.ver2	minion
@@ -69,8 +69,8 @@ zika-library9-2018-09-10	BC07	ZK0110	ZIKA_v2_500.amplicons.ver2	minion
 zika-library9-2018-09-10	BC08	ZK0110	ZIKA_v2_500.amplicons.ver2	minion
 zika-library9-2018-09-10	BC09	ZK0152	ZIKA_v2_500.amplicons.ver2	minion
 zika-library9-2018-09-10	BC10	ZK0152	ZIKA_v2_500.amplicons.ver2	minion
-zika-library9-2018-09-10	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library9-2018-09-10	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library9-2018-09-10	BC11	NTC9	ZIKA_v2_500.amplicons.ver2	minion
+zika-library9-2018-09-10	BC12	NTC9	ZIKA_v2_500.amplicons.ver2	minion
 chikv-library10-2019-01-16	BC01	ZK0038	CHIKV_primal_KP164568.bed	minion
 chikv-library10-2019-01-16	BC02	ZK0038	CHIKV_primal_KP164568.bed	minion
 chikv-library10-2019-01-16	BC03	ZK0066	CHIKV_primal_KP164568.bed	minion
@@ -81,8 +81,8 @@ chikv-library10-2019-01-16	BC07	ZK0180	CHIKV_primal_KP164568.bed	minion
 chikv-library10-2019-01-16	BC08	ZK0180	CHIKV_primal_KP164568.bed	minion
 chikv-library10-2019-01-16	BC09	ZK0186	CHIKV_primal_KP164568.bed	minion
 chikv-library10-2019-01-16	BC10	ZK0186	CHIKV_primal_KP164568.bed	minion
-chikv-library10-2019-01-16	BC11	NTC	CHIKV_primal_KP164568.bed	minion
-chikv-library10-2019-01-16	BC12	NTC	CHIKV_primal_KP164568.bed	minion
+chikv-library10-2019-01-16	BC11	NTC10	CHIKV_primal_KP164568.bed	minion
+chikv-library10-2019-01-16	BC12	NTC10	CHIKV_primal_KP164568.bed	minion
 chikv-library11-2019-04-26	BC01	ZK0162	CHIKV_primal_KP164568.bed	minion
 chikv-library11-2019-04-26	BC02	ZK0162	CHIKV_primal_KP164568.bed	minion
 chikv-library11-2019-04-26	BC03	ZK0302	CHIKV_primal_KP164568.bed	minion
@@ -93,8 +93,8 @@ chikv-library11-2019-04-26	BC07	ZK0339	CHIKV_primal_KP164568.bed	minion
 chikv-library11-2019-04-26	BC08	ZK0339	CHIKV_primal_KP164568.bed	minion
 chikv-library11-2019-04-26	BC09	ZK0597	CHIKV_primal_KP164568.bed	minion
 chikv-library11-2019-04-26	BC10	ZK0597	CHIKV_primal_KP164568.bed	minion
-chikv-library11-2019-04-26	BC11	NTC	CHIKV_primal_KP164568.bed	minion
-chikv-library11-2019-04-26	BC12	NTC	CHIKV_primal_KP164568.bed	minion
+chikv-library11-2019-04-26	BC11	NTC11	CHIKV_primal_KP164568.bed	minion
+chikv-library11-2019-04-26	BC12	NTC11	CHIKV_primal_KP164568.bed	minion
 zika-library12-2019-05-22	BC01	TRDP173	ZIKA_v2_500.amplicons.ver2	minion
 zika-library12-2019-05-22	BC02	TRDP173	ZIKA_v2_500.amplicons.ver2	minion
 zika-library12-2019-05-22	BC03	TRDP238	ZIKA_v2_500.amplicons.ver2	minion
@@ -105,8 +105,8 @@ zika-library12-2019-05-22	BC07	TRDP256	ZIKA_v2_500.amplicons.ver2	minion
 zika-library12-2019-05-22	BC08	TRDP256	ZIKA_v2_500.amplicons.ver2	minion
 zika-library12-2019-05-22	BC09	TRDP274	ZIKA_v2_500.amplicons.ver2	minion
 zika-library12-2019-05-22	BC10	TRDP274	ZIKA_v2_500.amplicons.ver2	minion
-zika-library12-2019-05-22	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library12-2019-05-22	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library12-2019-05-22	BC11	NTC12	ZIKA_v2_500.amplicons.ver2	minion
+zika-library12-2019-05-22	BC12	NTC12	ZIKA_v2_500.amplicons.ver2	minion
 zika-library13-2019-05-23	BC01	TRDP282	ZIKA_v2_500.amplicons.ver2	minion
 zika-library13-2019-05-23	BC02	TRDP282	ZIKA_v2_500.amplicons.ver2	minion
 zika-library13-2019-05-23	BC03	TRDP300	ZIKA_v2_500.amplicons.ver2	minion
@@ -117,5 +117,5 @@ zika-library13-2019-05-23	BC07	TRDP317	ZIKA_v2_500.amplicons.ver2	minion
 zika-library13-2019-05-23	BC08	TRDP317	ZIKA_v2_500.amplicons.ver2	minion
 zika-library13-2019-05-23	BC09	TRDP333	ZIKA_v2_500.amplicons.ver2	minion
 zika-library13-2019-05-23	BC10	TRDP333	ZIKA_v2_500.amplicons.ver2	minion
-zika-library13-2019-05-23	BC11	NTC	ZIKA_v2_500.amplicons.ver2	minion
-zika-library13-2019-05-23	BC12	NTC	ZIKA_v2_500.amplicons.ver2	minion
+zika-library13-2019-05-23	BC11	NTC13	ZIKA_v2_500.amplicons.ver2	minion
+zika-library13-2019-05-23	BC12	NTC13	ZIKA_v2_500.amplicons.ver2	minion

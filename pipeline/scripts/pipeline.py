@@ -2,11 +2,7 @@
 import argparse, csv, subprocess, time
 import sys
 from Bio import SeqIO
-from cfg2 import config
 import os
-
-REF_GENOME = config['ref_genome']
-PRIMER_SCHEME = config['primer_scheme']
 
 def sample_to_run_data_mapping(samples_dir):
     '''
@@ -69,8 +65,8 @@ def construct_sample_fastas(sr_mapping, data_dir, build_dir):
         for fasta in fastas:
             if fasta.endswith('na.fasta'):
                 fastas.remove(fasta)
-                print('Remvoed 1 fasta ending in na.fasta')
-        assert len(fastas) == 2, 'Expected 2 .fasta files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/demux/' % (sample, len(fastas), data_dir, sr_mapping[sample][0])
+                print('Removed 1 fasta ending in na.fasta')
+        assert len(fastas) == 2, 'Expected 2 .fasta files for %s, instead found %s.\nCheck that they are present and gzipped in %s/demux/' % (sample, len(fastas), data_dir)
         complete_fasta = '%s%s_complete.fasta' % (build_dir, sample)
         with open(complete_fasta, 'w+') as f:
             with open(fastas[0], 'r') as f1:
@@ -85,7 +81,7 @@ def construct_sample_fastas(sr_mapping, data_dir, build_dir):
         final_fasta = '%s%s.fasta' % (build_dir, sample)
         with open(final_fasta, 'w+') as f:
             (run, barcode) = sr_mapping[sample][0]
-            sed_str = '%s%s/alba121/workspace' % (data_dir, run)
+            sed_str = '%s%s' % (data_dir, run)
             sed_str = sed_str.split('/')
             sed_str = '\/'.join(sed_str)
             call = 'sed \'s/\.\./%s/\' %s%s_complete.fasta' % (sed_str, build_dir, sample)
@@ -120,7 +116,7 @@ def construct_sample_fastqs(sr_mapping, data_dir, build_dir):
         # final_fastq = '%s%s.fastq' % (build_dir, sample)
         # with open(final_fastq, 'w+') as f:
         #     (run, barcode) = sr_mapping[sample][0]
-        #     sed_str = '%s%s/alba121/workspace' % (data_dir, run)
+        #     sed_str = '%s%s' % (data_dir, run)
         #     sed_str = sed_str.split('/')
         #     sed_str = '\/'.join(sed_str)
         #     call = 'sed \'s/\.\./%s/\' %s%s_complete.fastq' % (sed_str, build_dir, sample)
@@ -129,7 +125,7 @@ def construct_sample_fastqs(sr_mapping, data_dir, build_dir):
 
 # def run_nanopolish_index(build_dir)
 
-def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalled_reads):
+def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalled_reads, reference, primer):
     ''' Run fasta_to_consensus script to construct consensus files.
     TODO: Make sure that this runs after changes to inputs and fasta_to_consensus on 1d reads
     '''
@@ -137,10 +133,10 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalle
         print("* Processing " + sample)
         # build consensus
         sample_stem = build_dir + sample
-        if dimension == '2d':
-            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', '%s', sample_stem, '%s' % (REF_GENOME, PRIMER_SCHEME)]
+	if dimension == '2d':
+            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', reference, sample_stem, primer]
         elif dimension == '1d':
-            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', '%s', sample_stem, '%s', raw_reads, basecalled_reads % (REF_GENOME, PRIMER_SCHEME)]
+            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', reference, sample_stem, primer , raw_reads, basecalled_reads]
         print(" ".join(call))
         subprocess.call(" ".join(call), shell=True)
         # annotate consensus
@@ -189,38 +185,38 @@ def gather_consensus_fastas(sm_mapping, build_dir, prefix):
         else:
             print("WARNING: {} does not contain a consensus genome.".format(consensus_file))
     # sort samples
-    partial_samples.sort()
-    good_samples.sort()
-    poor_samples.sort()
-    print("Good samples: " + " ".join(good_samples))
-    print("Partial samples: " + " ".join(partial_samples))
-    print("Poor samples: " + " ".join(poor_samples))
+    #partial_samples.sort()
+    #good_samples.sort()
+    #poor_samples.sort()
+    #print("Good samples: " + " ".join(good_samples))
+    #print("Partial samples: " + " ".join(partial_samples))
+    #print("Poor samples: " + " ".join(poor_samples))
     # concatenate partial samples
-    input_file_list = [build_dir + sample + ".consensus.fasta" for sample in partial_samples]
-    output_file = build_dir + prefix + "_partial.fasta"
-    f = open(output_file, "w")
-    call = ['cat'] + input_file_list
-    print(" ".join(call) + " > " + output_file)
-    if len(input_file_list) >= 1:
-        subprocess.call(call, stdout=f)
+    #input_file_list = [build_dir + sample + ".consensus.fasta" for sample in partial_samples]
+    #output_file = build_dir + prefix + "_partial.fasta"
+    #f = open(output_file, "w")
+    #call = ['cat'] + input_file_list
+    #print(" ".join(call) + " > " + output_file)
+    #if len(input_file_list) >= 1:
+    #    subprocess.call(call, stdout=f)
     # concatenate good samples
-    input_file_list = [build_dir + sample + ".consensus.fasta" for sample in good_samples]
-    output_file = build_dir + prefix + "_good.fasta"
-    f = open(output_file, "w")
-    call = ['cat'] + input_file_list
-    print(" ".join(call) + " > " + output_file)
-    if len(input_file_list) >= 1:
-        subprocess.call(call, stdout=f)
+    #input_file_list = [build_dir + sample + ".consensus.fasta" for sample in good_samples]
+    #output_file = build_dir + prefix + "_good.fasta"
+    #f = open(output_file, "w")
+    #call = ['cat'] + input_file_list
+    #print(" ".join(call) + " > " + output_file)
+    #if len(input_file_list) >= 1:
+    #    subprocess.call(call, stdout=f)
     # concatenate poor samples
-    print("Poor samples: " + " ".join(good_samples))
-    input_file_list = [build_dir + sample + ".consensus.fasta" for sample in poor_samples]
-    output_file = build_dir + prefix + "_poor.fasta"
-    f = open(output_file, "w")
-    call = ['cat'] + input_file_list
-    print(" ".join(call) + " > " + output_file)
-    if len(input_file_list) >= 1:
-        subprocess.call(call, stdout=f)
-    print("")
+    #print("Poor samples: " + " ".join(good_samples))
+    #input_file_list = [build_dir + sample + ".consensus.fasta" for sample in poor_samples]
+    #output_file = build_dir + prefix + "_poor.fasta"
+    #f = open(output_file, "w")
+    #call = ['cat'] + input_file_list
+    #print(" ".join(call) + " > " + output_file)
+    #if len(input_file_list) >= 1:
+    #    subprocess.call(call, stdout=f)
+    #print("")
 
 def overlap(sr_mapping, build_dir):
     # prepare sorted bam files for coverage plots
@@ -271,27 +267,34 @@ def per_base_error_rate(sr_mapping, build_dir):
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser( description = "Bioinformatic pipeline for generating consensus genomes from demultiplexed fastas" )
-    parser.add_argument( '--data_dir', type = str, default = "data/",
-                            help="directory containing data; default is \'data/\'")
-    parser.add_argument( '--samples_dir', type = str, default = "samples/",
-                            help="directory containing samples and runs TSVs; default is \'samples/\'" )
-    parser.add_argument( '--build_dir', type = str, default = "build/",
-                            help="directory for output data; default is \'build/\'" )
-    parser.add_argument('--prefix', type = str, default = "ZIKA_USVI",
-                            help="string to be prepended onto all output consensus genome files; default is \'ZIKA_USVI\'")
-    parser.add_argument('--samples', type = str, default = None, nargs='*',
-                            help="sample to be run")
-    parser.add_argument('--dimension', type = str, default = '2d',
-                            help="dimension of library to be fun; options are \'1d\' or \'2d\', default is \'2d\'")
-    parser.add_argument('--run_steps', type = int, default = None, nargs='*',
-                            help="Numbered steps that should be run (i.e. 1 2 3):\n\t1. Construct sample fastas\n\t2 Construct sample fastqs \n\t3. Process sample fastas \n\t4. Gather consensus fastas \n\t 5. Generate overlap graphs \n\t6. Calculate per-base error rates")
-    parser.add_argument('--raw_reads', type=str, default=None, help="directory containing raw .fast5 reads")
-    parser.add_argument('--basecalled_reads', type=str, default=None, help="directory containing basecalled reads")
+    parser.add_argument( '--data_dir', type = str, default = "data",
+                            help="directory containing data; default is 'data/'" )
+    parser.add_argument( '--samples_dir', type = str, default = "samples",
+                            help="directory containing samples and runs TSVs; default is 'samples/'" )
+    parser.add_argument( '--build_dir', type = str, default = "build",
+                            help="directory for output data; default is 'build/'" )
+    parser.add_argument( '--prefix', type = str, default = "LIB",
+                            help="string to be prepended onto all output consensus genome files; default is 'LIB'" )
+    parser.add_argument( '--samples', type = str, default = None, nargs='*',
+                            help="sample to be run" )
+    parser.add_argument( '--dimension', type = str, default = '2d',
+                            help="dimension of library to be fun; options are '1d' or '2d', default is '2d'" )
+    parser.add_argument( '--run_steps', type = int, default = None, nargs='*',
+                            help="Numbered steps that should be run (i.e. 1 2 3):\n\t1. Construct sample fastas\n\t2. Construct sample fastqs \n\t3. Process sample fastas \n\t4. Gather consensus fastas \n\t 5. Generate overlap graphs \n\t6. Calculate per-base error rates")
+    parser.add_argument( '--raw_reads', type=str, default=None,
+                            help="directory containing raw .fast5 reads" )
+    parser.add_argument( '--basecalled_reads', type=str, default=None,
+                            help="directory containing basecalled reads" )
+    parser.add_argument( '--ref_gen', type = file,
+                            help="genome reference for alignment" )
+    parser.add_argument( '--primer_scheme', type = file,
+                            help="primer scheme of minion sequencing" )
     params = parser.parse_args()
 
-    assert params.dimension in [ '1d', '2d' ], "Unknown library dimension: options are \'1d\' or \'2d\'."
+    assert params.dimension in [ '1d', '2d' ], "Unknown library dimension: options are '1d' or '2d'."
     assert params.raw_reads is not None, "Directory containing raw reads is required."
     assert params.basecalled_reads is not None, "Directory containing basecalled_reads reads is required."
+
     dd = params.data_dir
     bd = params.build_dir
     sd = params.samples_dir
@@ -323,7 +326,7 @@ if __name__=="__main__":
     def csfq():
         construct_sample_fastqs(sr_mapping, dd, bd)
     def psf():
-        process_sample_fastas(sm_mapping, bd, params.dimension, params.raw_reads, params.basecalled_reads)
+        process_sample_fastas(sm_mapping, bd, params.dimension, params.raw_reads, params.basecalled_reads, params.reference, params.primer)
     def gcf():
         gather_consensus_fastas(sm_mapping, bd, params.prefix)
     def go():
