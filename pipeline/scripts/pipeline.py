@@ -123,9 +123,9 @@ def construct_sample_fastqs(sr_mapping, data_dir, build_dir):
         #     print(" > ".join([call, final_fastq]))
         #     subprocess.call(call, shell=True, stdout=f)
 
-# def run_nanopolish_index(build_dir)
+#def run_nanopolish_index(build_dir)
 
-def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalled_reads, reference_genome, primer_scheme):
+def process_sample_fastas(sm_mapping, build_dir, dimension, reference_genome, primer_scheme, raw_reads, basecalled_reads):
     ''' Run fasta_to_consensus script to construct consensus files.
     TODO: Make sure that this runs after changes to inputs and fasta_to_consensus on 1d reads
     '''
@@ -134,9 +134,9 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalle
         # build consensus
         sample_stem = build_dir + sample
 	if dimension == '2d':
-            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', 'pipeline/refs/ref_zika_KJ776791.fasta', sample_stem, 'pipeline/metadata/ZIKA_v2_500.amplicons.ver2.bed']
+            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', reference_genome, sample_stem, primer_scheme]
         elif dimension == '1d':
-            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', 'pipeline/refs/ref_zika_KJ776791.fasta', sample_stem, 'pipeline/metadata/ZIKA_v2_500.amplicons.ver2.bed',  raw_reads, basecalled_reads]
+            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', reference_genome, sample_stem, primer_scheme, raw_reads, basecalled_reads]
         print(" ".join(call))
         subprocess.call(" ".join(call), shell=True)
         # annotate consensus
@@ -285,9 +285,9 @@ if __name__=="__main__":
                             help="directory containing raw .fast5 reads" )
     parser.add_argument( '--basecalled_reads', type=str, default=None,
                             help="directory containing basecalled reads" )
-    parser.add_argument( '--reference_genome', type = file,
+    parser.add_argument( '--reference_genome', type = str,
                             help="genome reference for alignment" )
-    parser.add_argument( '--primer_scheme', type = file,
+    parser.add_argument( '--primer_scheme', type = str,
                             help="primer scheme of minion sequencing" )
     params = parser.parse_args()
 
@@ -329,7 +329,7 @@ if __name__=="__main__":
     def csfq():
         construct_sample_fastqs(sr_mapping, dd, bd)
     def psf():
-        process_sample_fastas(sm_mapping, bd, params.dimension, params.raw_reads, params.basecalled_reads, params.reference_genome, params.primer_scheme)
+        process_sample_fastas(sm_mapping, bd, params.dimension, params.reference_genome, params.primer_scheme, params.raw_reads, params.basecalled_reads)
     def gcf():
         gather_consensus_fastas(sm_mapping, bd, params.prefix)
     def go():
