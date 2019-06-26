@@ -125,7 +125,7 @@ def construct_sample_fastqs(sr_mapping, data_dir, build_dir):
 
 # def run_nanopolish_index(build_dir)
 
-def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalled_reads, reference, primer):
+def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalled_reads, reference_genome, primer_scheme):
     ''' Run fasta_to_consensus script to construct consensus files.
     TODO: Make sure that this runs after changes to inputs and fasta_to_consensus on 1d reads
     '''
@@ -134,9 +134,9 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, raw_reads, basecalle
         # build consensus
         sample_stem = build_dir + sample
 	if dimension == '2d':
-            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', reference, sample_stem, primer]
+            call = ['pipeline/scripts/fasta_to_consensus_2d.sh', 'pipeline/refs/ref_zika_KJ776791.fasta', sample_stem, 'pipeline/metadata/ZIKA_v2_500.amplicons.ver2.bed']
         elif dimension == '1d':
-            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', reference, sample_stem, primer , raw_reads, basecalled_reads]
+            call = ['pipeline/scripts/fasta_to_consensus_1d.sh', 'pipeline/refs/ref_zika_KJ776791.fasta', sample_stem, 'pipeline/metadata/ZIKA_v2_500.amplicons.ver2.bed',  raw_reads, basecalled_reads]
         print(" ".join(call))
         subprocess.call(" ".join(call), shell=True)
         # annotate consensus
@@ -285,7 +285,7 @@ if __name__=="__main__":
                             help="directory containing raw .fast5 reads" )
     parser.add_argument( '--basecalled_reads', type=str, default=None,
                             help="directory containing basecalled reads" )
-    parser.add_argument( '--ref_gen', type = file,
+    parser.add_argument( '--reference_genome', type = file,
                             help="genome reference for alignment" )
     parser.add_argument( '--primer_scheme', type = file,
                             help="primer scheme of minion sequencing" )
@@ -294,6 +294,9 @@ if __name__=="__main__":
     assert params.dimension in [ '1d', '2d' ], "Unknown library dimension: options are '1d' or '2d'."
     assert params.raw_reads is not None, "Directory containing raw reads is required."
     assert params.basecalled_reads is not None, "Directory containing basecalled_reads reads is required."
+    assert params.reference_genome is not '.fasta', "Unknown file for genome reference."
+    assert params.primer_scheme is not '.bed', "Unknown file for primer scheme."
+
 
     dd = params.data_dir
     bd = params.build_dir
@@ -326,7 +329,7 @@ if __name__=="__main__":
     def csfq():
         construct_sample_fastqs(sr_mapping, dd, bd)
     def psf():
-        process_sample_fastas(sm_mapping, bd, params.dimension, params.raw_reads, params.basecalled_reads, params.reference, params.primer)
+        process_sample_fastas(sm_mapping, bd, params.dimension, params.raw_reads, params.basecalled_reads, params.reference_genome, params.primer_scheme)
     def gcf():
         gather_consensus_fastas(sm_mapping, bd, params.prefix)
     def go():

@@ -4,9 +4,8 @@ set -e
 ref=$1
 sample=$2
 amplicons=$3
-lib=$4
-raw=$5
-basecalled_reads=$6
+raw=$4
+basecalled_reads=$5
 
 if [[ -z "$(which sbatch)" ]]
 then
@@ -39,7 +38,7 @@ else
   nanopolish index -d $raw -s $basecalled_reads/sequencing_summary.txt $sample.fastq
   #nanopolish index -d $raw $sample.fastq
   nanopolish variants --progress -t 16 --reads $sample.fastq -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
-  source activate zika-seq_pipeline &> /dev/null
+  source activate minion-seq_pipeline &> /dev/null
 fi
 
 # 4) filter the variants and produce a consensus

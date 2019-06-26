@@ -3,10 +3,12 @@ import subprocess
 from cfg import config
 import os
 
+BARCODES = [ 'BC%02d' % (s) for s in range(1,13) ]
 DEMUX_DIR = config['demux_dir']
 BASECALLED_READS = config['basecalled_reads']
 RAW_READS = config['raw_reads']
 BUILD_DIR = config['build_dir']
+PREFIX = config["prefix"]
 
 def get_minion_analysis():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['raw_reads'])
@@ -62,13 +64,13 @@ def _get_samples(wildcards):
 
 rule pipeline:
     params:
-        dimension = config['dimension'],
-        samples = _get_samples,
-        raw = config['raw_reads'],
-        build = BUILD_DIR,
-        basecalled_reads = config['basecalled_reads'],
-	reference = config['ref_genome'],
-	primer = config['primer_scheme']
+        dimension=config['dimension'],
+        samples=_get_samples,
+        raw=config['raw_reads'],
+        build=BUILD_DIR,
+        basecalled_reads=config['basecalled_reads'],
+	reference_genome=config['ref_genome'],
+	primer_scheme=config['primer_scheme']
     input:
         "%s" % (DEMUX_DIR)
     output:
@@ -76,4 +78,4 @@ rule pipeline:
     conda:
         "envs/conda.pipeline-env.yml"
     shell:
-        "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --ref_gen {params.reference} --primer_scheme {params.primer}"
+        "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}"
