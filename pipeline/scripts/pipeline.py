@@ -133,7 +133,7 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, reference_genome, pr
         print("* Processing " + sample)
         # build consensus
         sample_stem = build_dir + sample
-	if dimension == '2d':
+        if dimension == '2d':
             call = ['pipeline/scripts/fasta_to_consensus_2d.sh', reference_genome, sample_stem, primer_scheme]
         elif dimension == '1d':
             call = ['pipeline/scripts/fasta_to_consensus_1d.sh', reference_genome, sample_stem, primer_scheme, raw_reads, basecalled_reads]
