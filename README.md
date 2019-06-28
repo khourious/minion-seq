@@ -14,7 +14,6 @@ This repo contains scripts and files to run the bioinformatic analysis of genome
 ```sh
 git clone https://github.com/lpmor22/minionSeq.git
 cd minionSeq
-git checkout create_wrap
 ```
 - If you are running Ubuntu 16:
 ```sh
