@@ -1,7 +1,8 @@
 name: minion-seq
 channels:
-  - anaconda
+  - conda-forge
   - bioconda
+  - anaconda
 dependencies:
   - biopython
   - boto
@@ -16,3 +17,4 @@ dependencies:
   - pysam
   - python=3.6
   - snakemake
+

@@ -1,13 +1,15 @@
 name: minion-seq_pipeline
 channels:
-  - anaconda
-  - biobuilds
+  - conda-forge
   - bioconda
+  - biobuilds
+  - r
+  - defaults
 dependencies:
   - biopython
   - bwa
   - fastx-toolkit
-  - nanopolish
+  - nanopolish=0.9.0
   - pysam
   - python
   - pyvcf

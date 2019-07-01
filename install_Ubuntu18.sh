@@ -48,9 +48,9 @@ fi
 # Environment in which Snakemake will be run
 
 echo "Installing conda environment: minion-seq"
-conda env create -f $HOME/softwares/minionSeq/envs/conda.snakemake-env.yml
+conda env create -f $HOME/softwares/minionSeq/envs/conda.snakemake-env.yaml
 echo "Installing conda environment: minoin-seq_pipeline"
-conda env create -f $HOME/softwares/minionSeq/envs/conda.pipeline-env.yml
+conda env create -f $HOME/softwares/minionSeq/envs/conda.pipeline-env.yaml
 echo "Updating Python 3.7"
 conda install -c anaconda python=3.7
 echo "Updating Snakemake 5.5"
