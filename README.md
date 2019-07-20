@@ -15,13 +15,8 @@ This repo contains scripts and files to run the bioinformatic analysis of genome
 git clone https://github.com/lpmor22/minionSeq.git
 cd minionSeq
 ```
-- If you are running Ubuntu 16:
 ```sh
-sh ./install_Ubuntu16.sh
-```
-- If you are running Ubuntu 18:
-```sh
-sh ./install_Ubuntu18.sh
+sh ./install_requeriments.sh
 ```
 Note: If fails, you may need to run `chmod 700` before rerunning.
 
