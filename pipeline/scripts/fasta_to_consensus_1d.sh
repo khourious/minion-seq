@@ -34,11 +34,12 @@ if [[ "${CLUSTER}" -eq "1" ]]
 then
   $HOME/softwares/nanopolish/nanopolish variants --progress -t 16 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
 else
-  # source activate minion-seq_pipeline &> /dev/null
-   $HOME/softwares/nanopolish/nanopolish index -d $raw -s $basecalled_reads/sequencing_summary.txt $sample.fastq
-  #nanopolish index -d $raw $sample.fastq
-   $HOME/softwares/nanopolish/nanopolish variants --progress -t 16 --reads $sample.fastq -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
-  source activate minion-seq_pipeline &> /dev/null
+  #source $HOME/softwares/miniconda3/bin/activate minion-seq_pipeline &> /dev/null
+  $HOME/softwares/nanopolish/nanopolish index -d $raw -s $basecalled_reads/sequencing_summary.txt $sample.fastq
+  #$HOME/softwares/nanopolish/nanopolish index -d $raw -s $sample.fastq
+  $HOME/softwares/nanopolish/nanopolish variants --progress -t 16 --reads $sample.fastq -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
+  source $HOME/softwares/miniconda3/bin/activate minion-seq_pipeline &> /dev/null
+
 fi
 
 # 4) filter the variants and produce a consensus

@@ -32,11 +32,10 @@ if [[ "${CLUSTER}" -eq "1"]]
 then
   $HOME/softwares/nanopolish/nanopolish variants --progress -t 16 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`/fh/fast/bedford_t/zika-seq/pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
 else
-  source activate minion-seq_pipeline
+  source $HOME/softwares/miniconda3/bin/activate minion-seq_pipeline
   $HOME/softwares/nanopolish/nanopolish variants --progress -t 16 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`/fh/fast/bedford_t/zika-seq/pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
-  source activate minion-seq_pipeline
+  source $HOME/softwares/miniconda3/bin/activate minion-seq_pipeline
 fi
-
 
 # 4) filter the variants and produce a consensus
 python pipeline/scripts/margin_cons.py $ref $sample.vcf $sample.trimmed.sorted.bam a > $sample.consensus.fasta

@@ -26,18 +26,18 @@ rule all:
     input:
         "%s" % (BUILD_DIR)
 
-def _get_guppy_config(wildcards):
-    return config["guppy_config"]
+def _get_basecall_config(wildcards):
+    return config["basecall_config"]
 
 rule basecall:
     params:
-        cfg = _get_guppy_config
+        cfg = _get_basecall_config
     input:
         raw = "%s" % (RAW_READS)
     output:
         directory("%s/pass" % (BASECALLED_READS))
     shell:
-        "guppy_basecaller -i %s -c {params.cfg} -r --cpu_threads_per_caller 12 --qscore_filtering -s %s" % (RAW_READS, BASECALLED_READS)
+        "$HOME/softwares/ont-guppy-cpu/bin/guppy_basecaller -i %s -c {params.cfg} -r --cpu_threads_per_caller 12 --qscore_filtering -s %s" % (RAW_READS, BASECALLED_READS)
 
 def get_fastq_file():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
@@ -49,15 +49,17 @@ def get_fastq_file():
 
 FASTQ = get_fastq_file()
 
-rule demultiplex_full_fasta:
+rule demultiplex:
     input:
-        "%s/pass" % (BASECALLED_READS)
+        rules.basecall.output
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "porechop -i %s/pass/%s -b %s --barcode_threshold 75 --threads 12 --check_reads 100000" % (BASECALLED_READS, FASTQ, DEMUX_DIR)
+        "$HOME/softwares/Porechop/porechop-runner.py -i %s/pass/%s -b %s --barcode_threshold 75 --threads 12 --check_reads 100000" % (BASECALLED_READS, FASTQ, DEMUX_DIR)
 
 def _get_samples(wildcards):
+    """ Build a string of all samples that will be processed in a pipeline.py run.
+    """
     s = config['samples']
     samples = " ".join(s)
     return samples
@@ -69,13 +71,16 @@ rule pipeline:
         raw=config['raw_reads'],
         build=BUILD_DIR,
         basecalled_reads=config['basecalled_reads'],
-	reference_genome=config['ref_genome'],
+	reference_genome=config['reference_genome'],
 	primer_scheme=config['primer_scheme']
     input:
-        "%s" % (DEMUX_DIR)
+        rules.demultiplex.output
     output:
         directory("%s" % (BUILD_DIR))
     conda:
-        "envs/conda.pipeline-env.yml"
+        "envs/conda.pipeline-env.yaml"
     shell:
-        "python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}"
+        """
+        mkdir build/
+        python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}
+        """
