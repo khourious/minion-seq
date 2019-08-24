@@ -3,7 +3,6 @@ import subprocess
 from cfg import config
 import os
 
-BARCODES = [ 'BC%02d' % (s) for s in range(1,13) ]
 DEMUX_DIR = config['demux_dir']
 BASECALLED_READS = config['basecalled_reads']
 RAW_READS = config['raw_reads']
@@ -37,7 +36,7 @@ rule basecall:
     output:
         directory("%s/pass" % (BASECALLED_READS))
     shell:
-        "$HOME/softwares/ont-guppy-cpu/bin/guppy_basecaller -i %s -c {params.cfg} -r --cpu_threads_per_caller 12 --qscore_filtering -s %s" % (RAW_READS, BASECALLED_READS)
+        "guppy_basecaller --cpu_threads_per_caller 12 --verbose_logs --qscore_filtering --input_path %s --save_path %s --recursive --resume --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
 
 def get_fastq_file():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
@@ -55,11 +54,10 @@ rule demultiplex:
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "$HOME/softwares/Porechop/porechop-runner.py -i %s/pass/%s -b %s --barcode_threshold 75 --threads 12 --check_reads 100000" % (BASECALLED_READS, FASTQ, DEMUX_DIR)
+        "porechop --input %s/pass/%s --threads 12 --barcode_dir %s --barcode_threshold 75 --discard_unassigned --check_reads 100000" % (BASECALLED_READS, FASTQ, DEMUX_DIR)
 
 def _get_samples(wildcards):
-    """ Build a string of all samples that will be processed in a pipeline.py run.
-    """
+    "Build a string of all samples that will be processed in a pipeline.py run"
     s = config['samples']
     samples = " ".join(s)
     return samples
@@ -77,10 +75,5 @@ rule pipeline:
         rules.demultiplex.output
     output:
         directory("%s" % (BUILD_DIR))
-    conda:
-        "envs/conda.pipeline-env.yaml"
     shell:
-        """
-        mkdir build/
-        python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}
-        """
+        "mkdir build/ && python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}"
