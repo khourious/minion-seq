@@ -56,6 +56,8 @@ rule demultiplex_guppy:
     shell:
         "guppy_barcoder --worker_threads 12 --input_path %s/pass/%s --save_path %s/guppy_demultiplex --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/guppy_demultiplex/unclassified.tar.gz %s/guppy_demultiplex/unclassified && rm -rf %s/guppy_demultiplex/unclassified" % (BASECALLED_READS, FASTQ, BASECALLED_READS, BASECALLED_READS, BASECALLED_READS, BASECALLED_READS)
 
+rule demultiplex_porechop:
+    input:
         rules.demultiplex_guppy.output
     output:
         directory("%s" % (DEMUX_DIR))
