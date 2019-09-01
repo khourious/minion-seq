@@ -28,7 +28,7 @@ rule all:
 def _get_basecall_config(wildcards):
     return config["basecall_config"]
 
-rule basecall (guppy):
+rule basecall_guppy:
     params:
         cfg = _get_basecall_config
     input:
@@ -48,13 +48,19 @@ def get_fastq_file():
 
 FASTQ = get_fastq_file()
 
-rule demultiplex (guppy):
+rule demultiplex_guppy:
     input:
-        rules.basecall.output
+        rules.basecall_guppy.output
+    output:
+        directory("%s/guppy_demultiplex" % (BASECALLED_READS))
+    shell:
+        "guppy_barcoder --worker_threads 12 --input_path %s/pass/%s --save_path %s/guppy_demultiplex --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/guppy_demultiplex/unclassified.tar.gz %s/guppy_demultiplex/unclassified && rm -rf %s/guppy_demultiplex/unclassified" % (BASECALLED_READS, FASTQ, BASECALLED_READS, BASECALLED_READS, BASECALLED_READS, BASECALLED_READS)
+
+        rules.demultiplex_guppy.output
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "porechop --input %s/pass/%s --threads 12 --barcode_dir %s --barcode_threshold 75 --discard_unassigned --check_reads 100000" % (BASECALLED_READS, FASTQ, DEMUX_DIR)
+        "porechop --input %s/guppy_demultiplex --threads 12 --barcode_dir %s --require_two_barcodes --check_reads 100000" % (BASECALLED_READS, DEMUX_DIR)
 
 def _get_samples(wildcards):
     "Build a string of all samples that will be processed in a pipeline.py run"
@@ -72,7 +78,7 @@ rule pipeline:
 	reference_genome=config['reference_genome'],
 	primer_scheme=config['primer_scheme']
     input:
-        rules.demultiplex.output
+        rules.demultiplex_porechop.output
     output:
         directory("%s" % (BUILD_DIR))
     shell:

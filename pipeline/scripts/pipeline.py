@@ -51,7 +51,8 @@ def fastq_to_fasta(sr_mapping, data_dir):
             for fastq in fastqs:
                 fasta = re.sub('q$', 'a', fastq)
                 print("Converting %s to %s." % (fastq, fasta))
-                call = "fastq_to_fasta -i %s%s/demux/%s -o %s%s/demux/%s" % (data_dir, run, fastq, data_dir, run, fasta)
+                call = "seqtk seq -A %s%s/demux/%s > %s%s/demux/%s" % (data_dir, run, fastq, data_dir, run, fasta)
+
                 subprocess.call(call, shell=True)
             first = False
 
