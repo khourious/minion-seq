@@ -27,15 +27,14 @@ def sample_to_metadata_mapping(samples_dir):
     return dict
     each key is string "sample_id"
     each value is a list of metadata ordered as
-    ["strain", "sample_id", "collect_date", "country", "division", "location"]
+    ["sample_id", "country", "division", "location", "collect_date"]
     '''
     metadata_file = samples_dir + "samples.tsv"
     sm_mapping = {}
     with open(metadata_file) as tsv:
         for row in csv.DictReader(tsv, delimiter="\t"):
             sample = row["sample_id"]
-            metadata = [row["strain"], row["sample_id"], row["collection_date"],
-                row["country"], row["division"], row["location"]]
+            metadata = row["sample_id"], row["country"], row["division"], row["location"], row["collection_date"]
             sm_mapping[sample] = metadata
     return sm_mapping
 
@@ -141,7 +140,7 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, reference_genome, pr
         print(" ".join(call))
         subprocess.call(" ".join(call), shell=True)
         # annotate consensus
-        # >ZBRD116|ZBRD116|2015-08-28|brazil|alagoas|arapiraca|minion
+        # >ZBRD116|brazil|alagoas|arapiraca|2015-08-28
         print('#############\n')
         fasta_header = ">" + "|".join(sm_mapping[sample])
         fasta_header += "|minion"
@@ -186,12 +185,12 @@ def gather_consensus_fastas(sm_mapping, build_dir, prefix):
         else:
             print("WARNING: {} does not contain a consensus genome.".format(consensus_file))
     # sort samples
-    #partial_samples.sort()
-    #good_samples.sort()
-    #poor_samples.sort()
-    #print("Good samples: " + " ".join(good_samples))
-    #print("Partial samples: " + " ".join(partial_samples))
-    #print("Poor samples: " + " ".join(poor_samples))
+    partial_samples.sort()
+    good_samples.sort()
+    poor_samples.sort()
+    print("Good samples: " + " ".join(good_samples))
+    print("Partial samples: " + " ".join(partial_samples))
+    print("Poor samples: " + " ".join(poor_samples))
     # concatenate partial samples
     #input_file_list = [build_dir + sample + ".consensus.fasta" for sample in partial_samples]
     #output_file = build_dir + prefix + "_partial.fasta"

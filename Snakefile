@@ -28,7 +28,7 @@ rule all:
 def _get_basecall_config(wildcards):
     return config["basecall_config"]
 
-rule basecall:
+rule basecall (guppy):
     params:
         cfg = _get_basecall_config
     input:
@@ -36,7 +36,7 @@ rule basecall:
     output:
         directory("%s/pass" % (BASECALLED_READS))
     shell:
-        "guppy_basecaller --cpu_threads_per_caller 12 --verbose_logs --qscore_filtering --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
+        "guppy_basecaller --cpu_threads_per_caller 12 --verbose_logs --qscore_filtering --input_path %s --save_path %s --records_per_fastq 0 --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
 
 def get_fastq_file():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
@@ -48,7 +48,7 @@ def get_fastq_file():
 
 FASTQ = get_fastq_file()
 
-rule demultiplex:
+rule demultiplex (guppy):
     input:
         rules.basecall.output
     output:
