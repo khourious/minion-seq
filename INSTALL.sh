@@ -34,9 +34,10 @@ conda update --yes --name base --channel defaults conda
 echo "Creating "minion-seq" environment..."
 conda create --yes --name minion-seq
 echo "Installing packages in minion-seq..."
-conda install --yes --name minion-seq --channel anaconda biopython drmaa pycoqc
-conda install --yes --name minion-seq --channel biobuilds fastx-toolkit
-conda install --yes --name minion-seq --channel bioconda bwa deepbinner nanopolish porechop pysam r-minionqc seqtk snakemake samtools vcftools
-conda install --yes --name minion-seq --channel conda-forge boto boto3 ipython libiconv ncurses numpy pandas psutil python=3.6* pyvcf r-optparse tensorflow
-conda install --yes --name minion-seq --channel r r r-reshape r-reshape2
+conda config --add channels anaconda
+conda config --add channels biobuilds
+conda config --add channels bioconda
+conda config --add channels conda-forge
+conda config --add channels r
+conda install --yes --name minion-seq boto boto3 ipython libiconv ncurses numpy pandas psutil python=3.6* pyvcf r-optparse bwa nanopolish porechop pycoqc pysam r-minionqc seqtk snakemake samtools vcftools biopython drmaa r r-reshape r-reshape2
 echo "" && echo "Done!"
