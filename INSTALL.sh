@@ -5,7 +5,7 @@ echo ">> minion-seq requirements <<" && echo ""
 if [ -z "$(which guppy_basecaller)" ]
 then
   echo "Downloading Guppy..."
-  curl https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_3.2.2_linux64.tar.gz --output $HOME/softwares/ont-guppy-cpu.tar.gz
+  curl https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_3.2.4_linux64.tar.gz --output $HOME/softwares/ont-guppy-cpu.tar.gz
   echo "Installing Guppy..."
   cd $HOME/softwares/ && tar -vzxf ont-guppy-cpu.tar.gz && mv ont-guppy-cpu/ guppy/ && rm -rf ont-guppy-cpu.tar.gz
   export PATH="$HOME/softwares/guppy/bin:/usr/local/share/rsi/idl/bin:$PATH"
@@ -23,21 +23,21 @@ then
   bash $HOME/softwares/miniconda.sh -bfp $HOME/softwares/conda && rm --recursive --force $HOME/softwares/miniconda.sh
   export PATH="$HOME/softwares/conda/bin:/usr/local/share/rsi/idl/bin:$PATH"
   echo 'export PATH="$HOME/softwares/conda/bin:/usr/local/share/rsi/idl/bin:$PATH"' >> $HOME/.bashrc
+  conda config --add channels anaconda
+  conda config --add channels biobuilds
+  conda config --add channels bioconda
+  conda config --add channels conda-forge
+  conda config --add channels r
   echo "Successfully installed Miniconda!" && echo ""
 else
   echo "Miniconda already installed!" && echo ""
 fi
 # Updating conda
 echo "Updating conda..."
-conda update --yes --name base --channel defaults conda
+conda update --yes --name base conda
 # Create conda environment: minion-seq
 echo "Creating "minion-seq" environment..."
 conda create --yes --name minion-seq
 echo "Installing packages in minion-seq..."
-conda config --add channels anaconda
-conda config --add channels biobuilds
-conda config --add channels bioconda
-conda config --add channels conda-forge
-conda config --add channels r
-conda install --yes --name minion-seq boto boto3 ipython libiconv ncurses numpy pandas psutil python=3.6* pyvcf r-optparse bwa nanopolish porechop pycoqc pysam r-minionqc seqtk snakemake samtools vcftools biopython drmaa r r-reshape r-reshape2
+conda install --yes --name minion-seq biopython boto boto3 bwa deepbinner drmaa ipython libiconv nanopolish ncurses numpy pandas porechop psutil pycoqc pysam python=3.6* pyvcf r r-minionqc r-optparse r-reshape r-reshape2 samtools seqtk snakemake tensorflow vcftools
 echo "" && echo "Done!"

@@ -28,7 +28,7 @@ rule all:
 def _get_basecall_config(wildcards):
     return config["basecall_config"]
 
-rule basecall_guppy:
+rule basecall:
     params:
         cfg = _get_basecall_config
     input:
@@ -48,21 +48,21 @@ def get_fastq_file():
 
 FASTQ = get_fastq_file()
 
-rule demultiplex_guppy:
+rule pre_demultiplex:
     input:
-        rules.basecall_guppy.output
+        rules.basecall.output
     output:
-        directory("%s/guppy_demultiplex" % (BASECALLED_READS))
+        directory("%s/demux_guppy" % (RAW_READS))
     shell:
-        "guppy_barcoder --worker_threads 12 --input_path %s/pass/%s --save_path %s/guppy_demultiplex --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/guppy_demultiplex/unclassified.tar.gz %s/guppy_demultiplex/unclassified && rm -rf %s/guppy_demultiplex/unclassified" % (BASECALLED_READS, FASTQ, BASECALLED_READS, BASECALLED_READS, BASECALLED_READS, BASECALLED_READS)
+        "guppy_barcoder --worker_threads 12 --input_path %s/pass/%s --save_path %s/demux_guppy --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/demux_guppy/unclassified.tar.gz %s/demux_guppy/unclassified && rm -rf %s/demux_guppy/unclassified" % (BASECALLED_READS, FASTQ, RAW_READS, RAW_READS, RAW_READS, RAW_READS)
 
-rule demultiplex_porechop:
+rule demultiplex:
     input:
-        rules.demultiplex_guppy.output
+        rules.pre_demultiplex.output
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "porechop --input %s/guppy_demultiplex --threads 12 --barcode_dir %s --require_two_barcodes --check_reads 100000" % (BASECALLED_READS, DEMUX_DIR)
+        "porechop --input %s/demux_guppy --threads 12 --barcode_dir %s --require_two_barcodes --check_reads 100000" % (RAW_READS, DEMUX_DIR)
 
 def _get_samples(wildcards):
     "Build a string of all samples that will be processed in a pipeline.py run"
@@ -80,8 +80,9 @@ rule pipeline:
 	reference_genome=config['reference_genome'],
 	primer_scheme=config['primer_scheme']
     input:
-        rules.demultiplex_porechop.output
+        rules.demultiplex.output
     output:
         directory("%s" % (BUILD_DIR))
     shell:
         "mkdir build/ && python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}"
+
