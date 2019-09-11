@@ -3,9 +3,9 @@ config = { 'raw_reads':
            'dimension':
                 '1d',
            'demux_dir':
-                '/home/username/softwares/minionSeq/data/library/porechop_demux',
+                '/home/username/softwares/minionSeq/data/library/demux_porechop',
            'basecalled_reads':
-                '/home/username/softwares/minionSeq/data/library/guppy_basecalled_reads',
+                '/home/username/softwares/minionSeq/data/library/basecalled_reads',
            'build_dir':
                 '/home/username/softwares/minionSeq/build',
            'samples':

@@ -47,11 +47,11 @@ def fastq_to_fasta(sr_mapping, data_dir):
     for sample in sr_mapping:
         if first:
             run = sr_mapping[sample][0][0]
-            fastqs = os.listdir('%s%s/porechop_demux/' % (data_dir, run))
+            fastqs = os.listdir('%s%s/demux_porechop/' % (data_dir, run))
             for fastq in fastqs:
                 fasta = re.sub('q$', 'a', fastq)
                 print("Converting %s to %s." % (fastq, fasta))
-                call = "seqtk seq -A %s%s/porechop_demux/%s > %s%s/porechop_demux/%s" % (data_dir, run, fastq, data_dir, run, fasta)
+                call = "seqtk seq -A %s%s/demux_porechop/%s > %s%s/demux_porechop/%s" % (data_dir, run, fastq, data_dir, run, fasta)
 
                 subprocess.call(call, shell=True)
             first = False
@@ -62,12 +62,12 @@ def construct_sample_fastas(sr_mapping, data_dir, build_dir):
     import gzip
     for sample in sr_mapping:
         # Grab a matched pair of barcode fastas; global paths
-        fastas = [ '%s%s/porechop_demux/%s.fasta' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
+        fastas = [ '%s%s/demux_porechop/%s.fasta' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
         for fasta in fastas:
             if fasta.endswith('na.fasta'):
                 fastas.remove(fasta)
                 print('Removed 1 fasta ending in na.fasta')
-        assert len(fastas) == 2, 'Expected 2 .fasta files for %s, instead found %s.\nCheck that they are present and gzipped in %s/porechop_demux/' % (sample, len(fastas), data_dir)
+        assert len(fastas) == 2, 'Expected 2 .fasta files for %s, instead found %s.\nCheck that they are present and gzipped in %s/demux_porechop/' % (sample, len(fastas), data_dir)
         complete_fasta = '%s%s_complete.fasta' % (build_dir, sample)
         with open(complete_fasta, 'w+') as f:
             with open(fastas[0], 'r') as f1:
@@ -95,13 +95,13 @@ def construct_sample_fastqs(sr_mapping, data_dir, build_dir):
     import gzip
     for sample in sr_mapping:
         # Grab a matched pair of barcode fastqs; global paths
-        fastqs = [ '%s%s/porechop_demux/%s.fastq' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
+        fastqs = [ '%s%s/demux_porechop/%s.fastq' % (data_dir, run, barcode) for (run, barcode) in sr_mapping[sample] ]
         for fastq in fastqs:
             if fastq.endswith('na.fastq'):
                 fastqs.remove(fastq)
                 print('Removed 1 fastq ending in na.fastq')
         print(fastqs)
-        assert len(fastqs) == 2, 'Expected 2 .fastq files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/porechop_demux/' % (sample, len(fastqs), data_dir, sr_mapping[sample][0])
+        assert len(fastqs) == 2, 'Expected 2 .fastq files for %s, instead found %s.\nCheck that they are present and gzipped in %s%s/demux_porechop/' % (sample, len(fastqs), data_dir, sr_mapping[sample][0])
         complete_fastq = '%s%s.fastq' % (build_dir, sample)
         # complete_fastq = '%s%s_complete.fastq' % (build_dir, sample)
         with open(complete_fastq, 'w+') as f:
