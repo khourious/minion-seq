@@ -1,0 +1,5 @@
+#!/bin/bash
+cp -f -r -u $HOME/softwares/minion-seq/bin/ $HOME/bin/ && \
+chmod 777 -R $HOME/bin/ && \
+export PATH="$HOME/bin:/usr/local/share/rsi/idl/bin:$PATH" >> $HOME/.bashrc && \
+echo 'export PATH="$HOME/bin:/usr/local/share/rsi/idl/bin:$PATH"' >> $HOME/.bashrc
