@@ -40,4 +40,10 @@ echo "Creating "minion-seq" environment..."
 conda create --yes --name minion-seq
 echo "Installing packages in minion-seq..."
 conda install --yes --name minion-seq biopython boto boto3 bwa deepbinner drmaa ipython libiconv nanopolish ncurses numpy pandas porechop psutil pycoqc pysam python=3.6* pyvcf r r-minionqc r-optparse r-reshape r-reshape2 samtools seqtk snakemake tensorflow vcftools
+# Create PATH to bin folder
+echo "Creating PATH to bin folder..."
+cp -f -r -u $HOME/softwares/minion-seq/bin/ $HOME/bin/ && \
+chmod 777 -R $HOME/bin/ && \
+export PATH="$HOME/bin:/usr/local/share/rsi/idl/bin:$PATH" >> $HOME/.bashrc && \
+echo 'export PATH="$HOME/bin:/usr/local/share/rsi/idl/bin:$PATH"' >> $HOME/.bashrc
 echo "" && echo "Done!"
