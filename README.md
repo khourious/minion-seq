@@ -2,7 +2,7 @@
 
 #### Laise de Moraes<sup>1</sup>, Felipe Torres<sup>1</sup>, Luciane Amorim<sup>1,2</sup>, Ricardo Khouri<sup>1,2,3</sup>
 
-###### <sup>1</sup>Laboratório de Enfermidades Infecciosas Transmitidas por Vetores, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Salvador Bahia, Brasil; <sup>2</sup>Faculdade de Medicina da Bahia, Universidade Federal da Bahia, Salvador, Brasil; <sup>3</sup>KU Leuven, Department of Microbiology and Immunology, Rega Institute for Medical Research, Laboratory of Clinical and Epidemiological Virology, Leuven, Belgium.
+###### <sup>1</sup>Laboratório de Enfermidades Infecciosas Transmitidas por Vetores, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Salvador, Bahia, Brazil; <sup>2</sup>Faculdade de Medicina da Bahia, Universidade Federal da Bahia, Salvador, Bahia, Brazil; <sup>3</sup>KU Leuven, Department of Microbiology and Immunology, Rega Institute for Medical Research, Laboratory of Clinical and Epidemiological Virology, Leuven, Belgium
 
 This repo contains scripts and files to run the bioinformatic analysis of genome sequencing using MinION, and was built based on "[Experimental protocols and bioinformatic pipelines for Zika genome sequencing](https://github.com/blab/zika-seq)" of [Bedford Lab](https://bedford.io/projects/zika-seq).
 
@@ -12,21 +12,21 @@ This repo contains scripts and files to run the bioinformatic analysis of genome
 
 1. Download and install the pipeline from the github repo:
 ```sh
-git clone https://github.com/lpmor22/minionSeq.git
-cd minionSeq
+git clone --recursive https://github.com/lpmor22/minion-seq.git
+cd minion-seq
 ```
 ```sh
-sh ./install_requeriments.sh
+sh ./INSTALL.sh
 ```
 Note: If fails, you may need to run `chmod 700` before rerunning.
 
 ---
 
-2. Input `reference genome` for the pipeline in the refs directory: ``minionSeq/pipeline/refs/``
+2. Input `reference genome` for the pipeline in the refs directory: ``minion-seq/pipeline/refs/``
 
 ---
 
-3. Input `primer scheme` for the pipeline in the metadata directory: ``minionSeq/pipeline/metadata/``
+3. Input `primer scheme` for the pipeline in the metadata directory: ``minion-seq/pipeline/metadata/``
 
 ### `primer-scheme.bed`
 
@@ -39,7 +39,7 @@ Must be `bed` formatted. Keyed off of column headers rather than column order.
 
 ---
 
-4. Input `sample metadata` for the pipeline in the samples directory: ``minionSeq/samples/``
+4. Input `sample metadata` for the pipeline in the samples directory: ``minion-seq/samples/``
     - ``samples.tsv`` - line list of sample metadata
     - ``runs.tsv`` - line list of run metadata
 
@@ -47,41 +47,42 @@ Must be `bed` formatted. Keyed off of column headers rather than column order.
 
 Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
-| sample_id | strain             | collection_date | country | division  | location  | usvi_sample_id      | seq_platform |
-| --------- | ------------------ | --------------- | ------- | --------- | --------- | ------------------- | ------------ |
-| ID0001    | Zika Vírus         | 2019-05-03      | Brazil  | Bahia     | Salvador  | Plasma              | minion       |
-| ID0002    | Zika Vírus         | 2019-05-03      | Brazil  | Bahia     | Salvador  | Whole Blood         | minion       |
-| ID0003    | Zika Vírus         | 2019-05-03      | Brazil  | Bahia     | Salvador  | Urine               | minion       |
-| ID0004    | Chikungunya Vírus  | 2019-05-03      | Brazil  | Bahia     | Salvador  | Plasma              | minion       |
-| ID0005    | Chikungunya Vírus  | 2019-05-03      | Brazil  | Bahia     | Salvador  | Whole Blood         | minion       |
-| NTC       | NTC                | 2019-05-03      | Brazil  | Bahia     | Salvador  | No Template Control | minion       |
+| sample_id | sample_type         | country | division  | location         | collection_date     | 
+| --------- | --------------------| ------- | --------- | ---------------- | ------------------- | 
+| ID0001    | plasma              | brazil  | bahia     | salvador         | 2019-05-03          | 
+| ID0002    | whole_blood         | brazil  | bahia     | senhor_do_bonfim | 2019-05-03          | 
+| ID0003    | placenta            | brazil  | bahia     | salvador         | 2019-05-03          | 
+| ID0004    | serumn              | brazil  | bahia     | salvador         | 2019-05-03          | 
+| ID0005    | breast_milk         | brazil  | bahia     | salvador         | 2019-05-03          | 
+| NTC1      | no_template_control | brazil  | bahia     | salvador         | 2019-05-03          | 
 
 ### `runs.tsv`
 
 Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
-| run_name            | barcode_id | sample_id    | primer_scheme |
-| ------------------- | ---------- | ------------ | ------------- |
-| library1-2019-05-03 | BC01       | ID0001       | primer_scheme |
-| library1-2019-05-03 | BC02       | ID0001       | primer_scheme |
-| library1-2019-05-03 | BC03       | ID0002       | primer_scheme |
-| library1-2019-05-03 | BC04       | ID0002       | primer_scheme |
-| library1-2019-05-03 | BC05       | ID0003       | primer_scheme |
-| library1-2019-05-03 | BC06       | ID0003       | primer_scheme |
-| library1-2019-05-03 | BC07       | ID0004       | primer_scheme |
-| library1-2019-05-03 | BC08       | ID0004       | primer_scheme |
-| library1-2019-05-03 | BC09       | ID0005       | primer_scheme |
-| library1-2019-05-03 | BC10       | ID0005       | primer_scheme |
-| library1-2019-05-03 | BC11       | NTC          | primer_scheme |
-| library1-2019-05-03 | BC12       | NTC          | primer_scheme |
+| run_name            | barcode_id | sample_id    | primer_scheme | seq_platform |
+| ------------------- | ---------- | ------------ | ------------- | ------------ |
+| library1-2019-05-03 | BC01       | ID0001       | primer_scheme | minion       |
+| library1-2019-05-03 | BC02       | ID0001       | primer_scheme | minion       |
+| library1-2019-05-03 | BC03       | ID0002       | primer_scheme | minion       |
+| library1-2019-05-03 | BC04       | ID0002       | primer_scheme | minion       |
+| library1-2019-05-03 | BC05       | ID0003       | primer_scheme | minion       |
+| library1-2019-05-03 | BC06       | ID0003       | primer_scheme | minion       |
+| library1-2019-05-03 | BC07       | ID0004       | primer_scheme | minion       |
+| library1-2019-05-03 | BC08       | ID0004       | primer_scheme | minion       |
+| library1-2019-05-03 | BC09       | ID0005       | primer_scheme | minion       |
+| library1-2019-05-03 | BC10       | ID0005       | primer_scheme | minion       |
+| library1-2019-05-03 | BC11       | NTC          | primer_scheme | minion       |
+| library1-2019-05-03 | BC12       | NTC          | primer_scheme | minion       |
 
 ---
 
-5. Open ``minionSeq/cfg.py`` and change config information as apropriate:
-* ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories (``minionSeq/data``)
+5. Open ``minion-seq/cfg.py`` and change config information as apropriate:
+* ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories (``minion-seq/data``)
 * ``dimension`` : sequencing dimension (1d or 2d)
-* ``demux_dir`` : path to directory where demultiplexing will take place
-* ``build_dir`` : path to output location (``minionSeq/build``)
+* ``demux_dir`` : path to directory where demultiplexing using porechop will take place (``minion-seq/data/library/demux_porechop``)
+* ``basecalled_reads`` : path to directory where basecalled reads will take place (``minion-seq/data/library/basecalled_reads``)
+* ``build_dir`` : path to output location (``minion-seq/build``)
 * ``samples`` : list of all samples that are included for the library that will be processed
 * ``guppy_config`` : name of the config file to be used during basecalling by Guppy (``guppy_basecaller --print_workflows``)
 * ``prefix`` : prefix to prepend onto output consensus genome filenames
@@ -99,25 +100,17 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 ---
 
-#### Tips
-
-* If the computer is shutdown or the snakemake process is "finished", the files are not deleted. However, snakemake creates a hidden metadata file with execution information. Then, to restart the snakemake process from the stop point, you can use ``snakemake --use-conda --rerun-incomplete``.
-
-* If you had a single sample that failed, rather than re-running the pipeline on all the samples again, change the config file so that the pipeline will *only run on the single* failed sample.
-
----
-
 #### Inside the pipeline...
 
 When Guppy basecalls the raw `fast5` reads, it makes a workspace directory, which then contains a `pass` and a `fail` directory. Both the `pass` and the `fail` directory contain fastq files. The `fastq` in the pass directory contains the high quality reads (Q score >= 7), and the pipeline only uses this `fastq` files.
 
-The basecalled `fastq` files serves as input to porechop, the program which performs barcode demultiplexing. Porechop writes a single `fastq` file for each barcode to the `demux` directory you created.
+The basecalled `fastq` files serves as input to Guppy Basecaller, the program which performs barcode demultiplexing. Guppy Basecaller writes a single `fastq` file for each barcode to the `demux_guppy` directory you created. Then, Porechop also writes a single `fastq` file for each barcode to the `demux_porechop` directory you created.
 
 Next we run `pipeline.py`, which is a large script that references other custom python scripts and shell scripts to do run every other step of the pipeline. This is what is occurring in `pipeline.py`.
 
 1.  Map sample IDs and run information that is contained in the `samples.tsv` and the `runs.tsv` files. This allows us to know which sample IDs are linked to which barcodes and primers etc.
 
-2. Convert demuxed `fastq` files to `fasta` files. (If you look in the `demux` directory after a pipeline run you'll see both file types present for each barcode).
+2. Convert demuxed `fastq` files to `fasta` files. (If you look in the `demux_porechop` directory after a pipeline run you'll see both file types present for each barcode).
 
 3. Using the linked sample and run information, combine the two barcode `fastq` or `fasta` files that represent pool 1 and pool 2 of the same sample. The pool-combined files are written as `<sample ID>.fasta` and `<sample ID>.fastq` to the `build` directory you made previously.
 
