@@ -1,13 +1,13 @@
 config = { 'raw_reads':
-                '/home/username/softwares/minionSeq/data/library',
+                '/somewhere/minion-seq/data/library',
            'dimension':
                 '1d',
            'demux_dir':
-                '/home/username/softwares/minionSeq/data/library/demux_porechop',
+                '/somewhere/minion-seq/data/library/demux_porechop',
            'basecalled_reads':
-                '/home/username/softwares/minionSeq/data/library/basecalled_reads',
+                '/somewhere/minion-seq/data/library/basecalled_reads',
            'build_dir':
-                '/home/username/softwares/minionSeq/build',
+                '/somewhere/minion-seq/build',
            'samples':
                 ['ID0001','ID0002','ID0003','ID0004','ID0005','NTC'],
            'basecall_config':
@@ -15,8 +15,8 @@ config = { 'raw_reads':
            'prefix':
                 'LIB',
            'reference_genome':
-                '/home/username/softwares/minionSeq/pipeline/refs/*.fasta',
+                '/somewhere/minion-seq/pipeline/refs/*.fasta',
            'primer_scheme':
-                '/home/username/softwares/minionSeq/pipeline/metadata/*.bed'
+                '/somewhere/minion-seq/pipeline/metadata/*.bed'
 
         }

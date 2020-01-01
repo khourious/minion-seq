@@ -141,10 +141,9 @@ def process_sample_fastas(sm_mapping, build_dir, dimension, reference_genome, pr
         print(" ".join(call))
         subprocess.call(" ".join(call), shell=True)
         # annotate consensus
-        # >ZBRD116|brazil|alagoas|arapiraca|2015-08-28
+        # >ZBRD116_brazil_alagoas_arapiraca_2015-08-28
         print('#############\n')
-        fasta_header = ">" + "|".join(sm_mapping[sample])
-        fasta_header += "|minion"
+        fasta_header = ">" + "_".join(sm_mapping[sample])
         replacement = r"\~^>~s~.*~" + fasta_header + "~" # ~ rather than / to avoid conflict with strain names
         input_file = build_dir + sample + ".consensus.fasta"
         output_file = "temp.fasta"
