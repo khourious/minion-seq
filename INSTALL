@@ -1,6 +1,8 @@
 #!/bin/bash
-# Install minionseq requirements
+# Install minion-seq requirements
 echo ">> minion-seq requirements <<" && echo ""
+# Install packages: curl git htop libdeflate-dev nanopolish wget
+sudo apt install curl git htop libdeflate-dev nanopolish wget
 # Guppy
 if [ -z "$(which guppy_basecaller)" ]
 then
@@ -48,7 +50,7 @@ conda update --yes --name base conda
 echo "Creating "minion-seq" environment..."
 conda create --yes --name minion-seq
 echo "Installing packages in minion-seq..."
-conda install --yes --name minion-seq biopython boto boto3 bwa deepbinner drmaa ipython libiconv libdeflate nanopolish ncurses numpy pandas porechop psutil pycoqc pysam python=3.6* pyvcf r r-minionqc r-optparse r-reshape r-reshape2 samtools seqtk snakemake tensorflow vcftools
+conda install --yes --name minion-seq biopython boto boto3 bwa drmaa ipython libiconv libdeflate ncurses numpy pandas porechop psutil pycoqc pysam python=3.6* pyvcf r r-minionqc r-optparse r-reshape r-reshape2 samtools seqtk snakemake vcftools
 # Create PATH to bin folder
 echo "Creating PATH to bin folder..."
 cp -f -r -u $HOME/softwares/minion-seq/bin/ $HOME/bin/ && \

@@ -20,3 +20,6 @@ config = { 'raw_reads':
                 '/somewhere/minion-seq/pipeline/metadata/*.bed'
 
         }
+
+# Chikungunya: CHIKV_KP164568
+# Zika: ZIKV_KJ776791

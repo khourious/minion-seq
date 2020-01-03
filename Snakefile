@@ -36,7 +36,7 @@ rule basecall:
     output:
         directory("%s/pass" % (BASECALLED_READS))
     shell:
-        "guppy_basecaller --device auto --gpu_runners_per_device 64 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
+        "guppy_basecaller --device auto --gpu_runners_per_device 128 --num_callers 4 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
 
 def get_fastq_file():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
@@ -54,7 +54,7 @@ rule pre_demultiplex:
     output:
         directory("%s/demux_guppy" % (RAW_READS))
     shell:
-        "guppy_barcoder --worker_threads 12 --input_path %s/pass/%s --save_path %s/demux_guppy --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/demux_guppy/unclassified.tar.gz %s/demux_guppy/unclassified && rm -rf %s/demux_guppy/unclassified" % (BASECALLED_READS, FASTQ, RAW_READS, RAW_READS, RAW_READS, RAW_READS)
+        "guppy_barcoder --worker_threads 20 --input_path %s/pass/%s --save_path %s/demux_guppy --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/demux_guppy/unclassified.tar.gz %s/demux_guppy/unclassified && rm -rf %s/demux_guppy/unclassified" % (BASECALLED_READS, FASTQ, RAW_READS, RAW_READS, RAW_READS, RAW_READS)
 
 rule demultiplex:
     input:
@@ -62,7 +62,7 @@ rule demultiplex:
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "porechop --input %s/demux_guppy --threads 12 --barcode_dir %s --require_two_barcodes --check_reads 100000" % (RAW_READS, DEMUX_DIR)
+        "porechop --input %s/demux_guppy --threads 20 --barcode_dir %s --require_two_barcodes --check_reads 100000" % (RAW_READS, DEMUX_DIR)
 
 def _get_samples(wildcards):
     "Build a string of all samples that will be processed in a pipeline.py run"
