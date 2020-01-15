@@ -12,13 +12,9 @@ else
   CLUSTER=1
 fi
 
-# Takes a $sample.fasta file full of nanopolish reads, ie
-# nanopolish extract --type 2d /data > $sample.fasta
-# Files are written to working directory
-
 # 1) index the ref & align with bwa
 bwa index $ref
-bwa mem -x ont2d $ref $sample.fasta | samtools view -bS - | samtools sort -o $sample.sorted.bam -
+bwa mem -x ont2d $ref $sample.fasta | samtools view --threads 20 -bS - | samtools sort --threads 20 -o $sample.sorted.bam -
 samtools index $sample.sorted.bam
 
 # 2) trim the alignments to the primer start sites and normalise the coverage to save time
@@ -30,10 +26,10 @@ samtools index $sample.primertrimmed.sorted.bam
 # 3) do variant calling using the raw signal alignment
 if [[ "${CLUSTER}" -eq "1"]]
 then
-  nanopolish variants --progress -t 16 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
+  nanopolish variants --progress -t 20 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
 else
   source activate minion-seq
-  nanopolish variants --progress -t 16 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
+  nanopolish variants --progress -t 20 --reads $sample.fasta -o $sample.vcf -b $sample.trimmed.sorted.bam -g $ref -vv -w "`pipeline/scripts/nanopolish_header.py $ref`" --snps --ploidy 1
   source activate minion-seq
 fi
 

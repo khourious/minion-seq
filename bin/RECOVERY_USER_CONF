@@ -1,0 +1,6 @@
+#!/bin/bash
+cd $HOME/softwares/minion-seq/minknow_user_conf/
+cp user_conf_backup.tar.gz /opt/ont/minknow/conf/
+cd /opt/ont/minknow/conf/
+sudo rm -rf /opt/ont/minknow/conf/user_conf
+sudo tar -xvf user_conf_backup.tar.gz

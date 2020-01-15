@@ -28,6 +28,18 @@ rule all:
 def _get_basecall_config(wildcards):
     return config["basecall_config"]
 
+# using CPU for basecall (guppy-cpu)
+#rule basecall:
+#    params:
+#        cfg = _get_basecall_config
+#    input:
+#        raw = "%s" % (RAW_READS)
+#    output:
+#        directory("%s/pass" % (BASECALLED_READS))
+#    shell:
+#        "guppy_basecaller --cpu_threads_per_caller 20 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
+
+# using GPU for basecall (guppy-gpu)
 rule basecall:
     params:
         cfg = _get_basecall_config
@@ -36,7 +48,8 @@ rule basecall:
     output:
         directory("%s/pass" % (BASECALLED_READS))
     shell:
-        "guppy_basecaller --device auto --gpu_runners_per_device 128 --num_callers 4 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
+        "guppy_basecaller --device auto --gpu_runners_per_device 64 --num_callers 26 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
+# NVIDIA GeForce RTX 2060: 26 callers with 64 cuda cores equals 1664 cuda cores selected
 
 def get_fastq_file():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
@@ -50,19 +63,19 @@ FASTQ = get_fastq_file()
 
 rule pre_demultiplex:
     input:
-        rules.basecall.output
+        basecall = "%s/pass" % (BASECALLED_READS)
     output:
         directory("%s/demux_guppy" % (RAW_READS))
     shell:
-        "guppy_barcoder --worker_threads 20 --input_path %s/pass/%s --save_path %s/demux_guppy --recursive --verbose_logs --records_per_fastq 0 --require_barcodes_both_ends && tar -czvf %s/demux_guppy/unclassified.tar.gz %s/demux_guppy/unclassified && rm -rf %s/demux_guppy/unclassified" % (BASECALLED_READS, FASTQ, RAW_READS, RAW_READS, RAW_READS, RAW_READS)
+        "guppy_barcoder --worker_threads 20 --input_path %s/pass/%s --save_path %s/demux_guppy --recursive --verbose_logs --records_per_fastq 100 --require_barcodes_both_ends && tar -czvf %s/demux_guppy/unclassified.tar.gz %s/demux_guppy/unclassified && rm -rf %s/demux_guppy/unclassified" % (BASECALLED_READS, FASTQ, RAW_READS, RAW_READS, RAW_READS, RAW_READS)
 
 rule demultiplex:
     input:
-        rules.pre_demultiplex.output
+        pre_demultiplex = "%s/demux_guppy" % (RAW_READS)
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "porechop --input %s/demux_guppy --threads 20 --barcode_dir %s --require_two_barcodes --check_reads 100000" % (RAW_READS, DEMUX_DIR)
+        "porechop --input %s/demux_guppy --threads 20 --barcode_dir %s --require_two_barcodes --discard_middle" % (RAW_READS, DEMUX_DIR)
 
 def _get_samples(wildcards):
     "Build a string of all samples that will be processed in a pipeline.py run"
@@ -80,9 +93,8 @@ rule pipeline:
 	reference_genome=config['reference_genome'],
 	primer_scheme=config['primer_scheme']
     input:
-        rules.demultiplex.output
+        demultiplex = "%s" % (DEMUX_DIR)
     output:
         directory("%s" % (BUILD_DIR))
     shell:
         "mkdir build/ && python pipeline/scripts/pipeline.py --samples {params.samples} --dimension {params.dimension} --raw_reads {params.raw} --build_dir {params.build} --basecalled_reads {params.basecalled_reads} --reference_genome {params.reference_genome} --primer_scheme {params.primer_scheme}"
-
