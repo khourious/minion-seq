@@ -7,7 +7,6 @@ cat $HOME/softwares/minion-seq/nohup.out
 #echo '|=============================================================================|'
 #nvidia-smi | grep 5934MiB
 #echo '+-----------------------------------------------------------------------------+'
-#nvidia-smi -q -d TEMPERATURE | grep 'GPU Current Temp'
 #nvidia-smi -q -d TEMPERATURE | grep 'GPU Max Operating'
 #nvidia-smi -q -d TEMPERATURE | grep 'GPU Slowdown Temp'
 #nvidia-smi -q -d TEMPERATURE | grep 'GPU Shutdown Temp'

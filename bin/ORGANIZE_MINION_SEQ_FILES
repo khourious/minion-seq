@@ -1,0 +1,32 @@
+#!/bin/bash
+read -e -r -p 'Set the name of LIBRARY: ' set1
+read -e -r -p 'Set the name of LIBRARY FOLDER: ' set2
+read -e -r -p 'Set the name of ANALYSIS FOLDER: ' set3
+
+mv $HOME/softwares/minion-seq/data/${set2} $HOME/softwares/minion-seq/data/${set3}
+mv $HOME/softwares/minion-seq/nohup.out $HOME/softwares/minion-seq/${set1}log.txt
+
+echo "" && echo 'moving CONFIG FILE, LOG FILE and BUILD FOLDER to ANALYSIS FOLDER...'
+cp $HOME/softwares/minion-seq/cfg.py $HOME/softwares/minion-seq/data/${set3}
+mv $HOME/softwares/minion-seq/${set1}log.txt $HOME/softwares/minion-seq/data/${set3}
+mv $HOME/softwares/minion-seq/build $HOME/softwares/minion-seq/data/${set3}
+
+echo "" && echo 'removing RAW files and temporary files...'
+rm -rf $HOME/softwares/minion-seq/.snakemake/
+rm -rf $HOME/softwares/minion-seq/__pycache__/
+rm -rf $HOME/softwares/minion-seq/pipeline/scripts/__pycache__/
+rm -rf $HOME/softwares/minion-seq/data/${set3}/2*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/demux_guppy/.snakemake_timestamp
+rm -rf $HOME/softwares/minion-seq/data/${set3}/demux_porechop/.snakemake_timestamp
+rm -rf $HOME/softwares/minion-seq/data/${set3}/build/.snakemake_timestamp
+
+echo "" && echo 'QC analysis using pycoQC...'
+source activate minion-seq
+pycoQC \
+--summary_file $HOME/softwares/minion-seq/data/${set3}/basecalled_reads/sequencing_summary.txt \
+--barcode_file $HOME/softwares/minion-seq/data/${set3}/demux_guppy/barcoding_summary.txt \
+--html_outfile $HOME/softwares/minion-seq/data/${set3}/${set1}qc.html \
+--report_title ${set1}qc
+chmod 777 -R $HOME/softwares/minion-seq/data/${set3}
+
+echo "" && echo "Done!"

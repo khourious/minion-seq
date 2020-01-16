@@ -1,0 +1,6 @@
+#!/bin/bash
+read -e -r -p 'Set the TARGET of analysis (CHIKV or ZIKV): ' set1
+read -e -r -p 'Set the name of LIBRARY FOLDER: ' set2
+source activate rampart
+cd $HOME/softwares/minion-seq/rampart-protocols/${set1}
+rampart --verbose --clearAnnotated --basecalledPath $HOME/softwares/minion-seq/data/${set2}/fastq_pass/
