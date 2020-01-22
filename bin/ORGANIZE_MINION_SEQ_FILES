@@ -16,6 +16,7 @@ rm -rf $HOME/softwares/minion-seq/.snakemake/
 rm -rf $HOME/softwares/minion-seq/__pycache__/
 rm -rf $HOME/softwares/minion-seq/pipeline/scripts/__pycache__/
 rm -rf $HOME/softwares/minion-seq/data/${set3}/2*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/fast5*
 rm -rf $HOME/softwares/minion-seq/data/${set3}/demux_guppy/.snakemake_timestamp
 rm -rf $HOME/softwares/minion-seq/data/${set3}/demux_porechop/.snakemake_timestamp
 rm -rf $HOME/softwares/minion-seq/data/${set3}/build/.snakemake_timestamp
@@ -27,6 +28,5 @@ pycoQC \
 --barcode_file $HOME/softwares/minion-seq/data/${set3}/demux_guppy/barcoding_summary.txt \
 --html_outfile $HOME/softwares/minion-seq/data/${set3}/${set1}qc.html \
 --report_title ${set1}qc
-chmod 777 -R $HOME/softwares/minion-seq/data/${set3}
 
 echo "" && echo "Done!"

@@ -1,6 +1,12 @@
 #!/bin/bash
-read -e -r -p 'Set the TARGET of analysis (CHIKV or ZIKV): ' set1
+read -e -r -p 'Set the TARGET of analysis (chikv or zikv): ' set1
 read -e -r -p 'Set the name of LIBRARY FOLDER: ' set2
 source activate rampart
-cd $HOME/softwares/minion-seq/rampart-protocols/${set1}
-rampart --verbose --clearAnnotated --basecalledPath $HOME/softwares/minion-seq/data/${set2}/fastq_pass/
+cd $HOME/softwares/minion-seq/data/${set2}
+rampart \
+--protocol /home/laisepaixao/softwares/minion-seq/rampart/${set1} \
+--title "ARTIC-RAMPART: Read Assignment, Mapping, and Phylogenetic Analysis in Real Time" \
+--basecalledPath $HOME/softwares/minion-seq/data/${set2}/fastq_pass \
+--referencesPath $HOME/softwares/minion-seq/rampart/references.fasta \
+--barcodeNames NB01=Sample1 NB02=Sample1 NB03=Sample2 NB04=Sample2 NB05=Sample3 NB06=Sample3 NB07=Sample4 NB08=Sample4 NB09=Sample5 NB10=Sample5 NB11=NTC NB12=NTC \
+--clearAnnotated

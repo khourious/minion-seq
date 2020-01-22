@@ -1,4 +1,4 @@
 #!/bin/bash
 cd $HOME/softwares/minion-seq
 source activate minion-seq
-nohup snakemake --use-conda --snakefile smk3
+nohup snakemake --use-conda --snakefile smk4
