@@ -28,18 +28,6 @@ rule all:
 def _get_basecall_config(wildcards):
     return config["basecall_config"]
 
-# using CPU for basecall (guppy-cpu)
-#rule basecall:
-#    params:
-#        cfg = _get_basecall_config
-#    input:
-#        raw = "%s" % (RAW_READS)
-#    output:
-#        directory("%s/pass" % (BASECALLED_READS))
-#    shell:
-#        "guppy_basecaller --cpu_threads_per_caller 20 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
-
-# using GPU for basecall (guppy-gpu)
 rule basecall:
     params:
         cfg = _get_basecall_config
@@ -48,8 +36,7 @@ rule basecall:
     output:
         directory("%s/pass" % (BASECALLED_READS))
     shell:
-        "guppy_basecaller --device auto --gpu_runners_per_device 64 --num_callers 26 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
-# NVIDIA GeForce RTX 2060: 26 callers with 64 cuda cores equals 1664 cuda cores selected
+        "guppy_basecaller --resume --device auto --gpu_runners_per_device 64 --num_callers 26 --verbose_logs --qscore_filtering --records_per_fastq 0 --input_path %s --save_path %s --recursive --config {params.cfg}" % (RAW_READS, BASECALLED_READS)
 
 def get_fastq_file():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['basecalled_reads']+"/pass")
