@@ -17,6 +17,13 @@ rm -rf $HOME/softwares/minion-seq/__pycache__/
 rm -rf $HOME/softwares/minion-seq/pipeline/scripts/__pycache__/
 rm -rf $HOME/softwares/minion-seq/data/${set3}/2*
 rm -rf $HOME/softwares/minion-seq/data/${set3}/fast5*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/drift_correction_*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/duty_time_*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/final_summary_*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/mux_scan_data_*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/report_*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/sequencing_summary_*
+rm -rf $HOME/softwares/minion-seq/data/${set3}/throughput_*
 rm -rf $HOME/softwares/minion-seq/data/${set3}/demux_guppy/.snakemake_timestamp
 rm -rf $HOME/softwares/minion-seq/data/${set3}/demux_porechop/.snakemake_timestamp
 rm -rf $HOME/softwares/minion-seq/data/${set3}/build/.snakemake_timestamp
