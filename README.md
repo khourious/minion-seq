@@ -2,7 +2,7 @@
 
 #### Laise de Moraes<sup>1</sup>, Felipe Torres<sup>1</sup>, Luciane Amorim<sup>1,2</sup>, Ricardo Khouri<sup>1,2,3</sup>
 
-###### <sup>1</sup>Laboratório de Enfermidades Infecciosas Transmitidas por Vetores, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Salvador, Bahia, Brazil; <sup>2</sup>Faculdade de Medicina da Bahia, Universidade Federal da Bahia, Salvador, Bahia, Brazil; <sup>3</sup>KU Leuven, Department of Microbiology and Immunology, Rega Institute for Medical Research, Laboratory of Clinical and Epidemiological Virology, Leuven, Belgium
+###### <sup>1</sup>Fundação Oswaldo Cruz, Instituto Gonçalo Moniz, Laboratório de Enfermidades Infecciosas Transmitidas por Vetores, Salvador, Bahia, Brazil; <sup>2</sup>Universidade Federal da Bahia, Faculdade de Medicina da Bahia, Salvador, Bahia, Brazil; <sup>3</sup>KU Leuven, Department of Microbiology and Immunology, Rega Institute for Medical Research, Laboratory of Clinical and Epidemiological Virology, Leuven, Belgium
 
 This repo contains scripts and files to run the bioinformatic analysis of genome sequencing using MinION, and was built based on "[Experimental protocols and bioinformatic pipelines for Zika genome sequencing](https://github.com/blab/zika-seq)" of [Bedford Lab](https://bedford.io/projects/zika-seq).
 
@@ -32,10 +32,10 @@ Note: If fails, you may need to run `chmod 700` before rerunning.
 
 Must be `bed` formatted. Keyed off of column headers rather than column order.
 
-| pubmed_id | start_sequence | end_sequence | primer_name        | sense_strand |
-| ----------| -------------- | ------------ | ------------------ | ------------ |
-| KP164568  | 115            | 137          | CHIK_400_1_FORWARD | +            |
-| KP164568  | 428            | 451          | CHIK_400_1_REVERSE | -            
+| pubmed_id | start_sequence | end_sequence | primer_name        | sense_strand | primer_id |
+| ----------| -------------- | ------------ | ------------------ | ------------ | --------- |
+| KP164568  | 116            | 137          | CHIK_400_1_LEFT_3  | +            | 1         |
+| KP164568  | 430            | 451          | CHIK_400_1_RIGHT_3 | -            | 1         |
 
 ---
 
@@ -47,56 +47,67 @@ Must be `bed` formatted. Keyed off of column headers rather than column order.
 
 Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
-| sample_id | sample_type         | country | division  | location         | collection_date     | 
-| --------- | --------------------| ------- | --------- | ---------------- | ------------------- | 
-| ID0001    | plasma              | brazil  | bahia     | salvador         | 2019-05-03          | 
-| ID0002    | whole_blood         | brazil  | bahia     | senhor_do_bonfim | 2019-05-03          | 
-| ID0003    | placenta            | brazil  | bahia     | salvador         | 2019-05-03          | 
-| ID0004    | serumn              | brazil  | bahia     | salvador         | 2019-05-03          | 
-| ID0005    | breast_milk         | brazil  | bahia     | salvador         | 2019-05-03          | 
-| NTC1      | no_template_control | brazil  | bahia     | salvador         | 2019-05-03          | 
+| sample_id      | sample_type          | country | division  | location              | collection_date | ct_value       | yield   |
+| -------------- | -------------------- | ------- | --------- | --------------------- | --------------- | -------------- | ------- |
+| ZK0152         | urine                | brazil  | bahia     | campo-formoso_tiquara | 2016-04-09      | 26.38          | 25.20   |
+| ZK0152         | urine                | brazil  | bahia     | campo-formoso_tiquara | 2016-04-09      | 26.38          | 15.70   |
+| ZIKA_03.1074   | placenta             | brazil  | bahia     | senhor_do_bonfim      | 2019-05-03      | not-applicable | 60.60   |
+| ZIKA_03.1074   | placenta             | brazil  | bahia     | senhor_do_bonfim      | 2019-05-03      | not-applicable | 47.00   |
+| ZIKA_03.0292   | brain                | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | 44.20   |
+| ZIKA_03.0292   | brain                | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | 32.40   |
+| ZIKA_03.0292_2 | spinal-cord          | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | 32.80   |
+| ZIKA_03.0292_2 | spinal-cord          | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | 40.80   |
+| ZIKA_03.0292_3 | liquor               | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | 23.80   |
+| ZIKA_03.0292_3 | liquor               | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | 27.80   |
+| NTC1           | no-template-control  | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | too-low |
+| NTC1           | no-template-control  | brazil  | bahia     | salvador              | 2019-05-03      | not-applicable | too-low |
 
 ### `runs.tsv`
 
 Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
-| run_name            | barcode_id | sample_id    | primer_scheme | seq_platform |
-| ------------------- | ---------- | ------------ | ------------- | ------------ |
-| library1-2019-05-03 | BC01       | ID0001       | primer_scheme | minion       |
-| library1-2019-05-03 | BC02       | ID0001       | primer_scheme | minion       |
-| library1-2019-05-03 | BC03       | ID0002       | primer_scheme | minion       |
-| library1-2019-05-03 | BC04       | ID0002       | primer_scheme | minion       |
-| library1-2019-05-03 | BC05       | ID0003       | primer_scheme | minion       |
-| library1-2019-05-03 | BC06       | ID0003       | primer_scheme | minion       |
-| library1-2019-05-03 | BC07       | ID0004       | primer_scheme | minion       |
-| library1-2019-05-03 | BC08       | ID0004       | primer_scheme | minion       |
-| library1-2019-05-03 | BC09       | ID0005       | primer_scheme | minion       |
-| library1-2019-05-03 | BC10       | ID0005       | primer_scheme | minion       |
-| library1-2019-05-03 | BC11       | NTC          | primer_scheme | minion       |
-| library1-2019-05-03 | BC12       | NTC          | primer_scheme | minion       |
+| run_name            | barcode_id | sample_id      | primer_scheme | sequencer_id | flow_cell_id |
+| ------------------- | ---------- | -------------- | ------------- | ------------ | ------------ |
+| library1-2018-01-09 | BC01       | ZK0152         | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC02       | ZK0152         | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC03       | ZIKA_03.1074   | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC04       | ZIKA_03.1074   | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC05       | ZIKA_03.0292   | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC06       | ZIKA_03.0292   | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC07       | ZIKA_03.0292_2 | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC08       | ZIKA_03.0292_2 | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC09       | ZIKA_03.0292_3 | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC10       | ZIKA_03.0292_3 | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC11       | NTC1           | ZIKV_KJ776791 | MN24316      | FAH31279     |
+| library1-2018-01-09 | BC12       | NTC1           | ZIKV_KJ776791 | MN24316      | FAH31279     |
 
 ---
 
 5. Open ``minion-seq/cfg.py`` and change config information as apropriate:
-* ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories (``minion-seq/data``)
+* ``raw_reads`` : directory containing un-basecalled ``.fast5`` numbered directories (``minion-seq/data/library``)
 * ``dimension`` : sequencing dimension (1d or 2d)
 * ``demux_dir`` : path to directory where demultiplexing using porechop will take place (``minion-seq/data/library/demux_porechop``)
 * ``basecalled_reads`` : path to directory where basecalled reads will take place (``minion-seq/data/library/basecalled_reads``)
 * ``build_dir`` : path to output location (``minion-seq/build``)
 * ``samples`` : list of all samples that are included for the library that will be processed
-* ``guppy_config`` : name of the config file to be used during basecalling by Guppy (``guppy_basecaller --print_workflows``)
+* ``basecall_config`` : name of the config file to be used during basecalling by Guppy (``guppy_basecaller --print_workflows``)
 * ``prefix`` : prefix to prepend onto output consensus genome filenames
-* ``ref_genome`` : reference genome for alignment (``minionSeq/pipeline/refs``)
-* ``primer_scheme`` : primer scheme used in sequencing (``minionSeq/pipeline/metadata``)
+* ``reference_genome`` : reference genome for alignment (``minion-seq/pipeline/refs``)
+* ``primer_scheme`` : primer scheme used in sequencing (``minion-seq/pipeline/metadata``)
 
 ---
 
 6. Run the pipeline:
 
   ```sh
-  source activate minion-seq
-  snakemake --use-conda
+  MINION_SEQ_n
   ```
+
+* ``MINION_SEQ_1`` : for analysis with basecall using CPU
+* ``MINION_SEQ_2`` : for analysis with basecall using GPU
+* ``MINION_SEQ_3`` : for analysis without basecall stage
+* ``MINION_SEQ_4`` : to resume basecall using CPU
+* ``MINION_SEQ_5`` : to resume basecall using GPU
 
 ---
 
