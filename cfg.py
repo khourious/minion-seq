@@ -1,11 +1,11 @@
 config = { 'raw_reads':
-                '/home/user/softwares/minion-seq/data/library/fast5_pass/',
+                '/home/user/softwares/minion-seq/data/library/',
            'dimension':
                 '1d',
            'demux_dir':
                 '/home/user/softwares/minion-seq/data/library/demux_porechop',
            'basecalled_reads':
-                '/home/user/softwares/minion-seq/data/library/fastq_pass/',
+                '/home/user/softwares/minion-seq/data/library/basecalled_reads',
            'build_dir':
                 '/home/user/softwares/minion-seq/build',
            'samples':

@@ -1,9 +1,11 @@
 #!/bin/bash
 read -e -r -p 'Set the TARGET of analysis (chikv or zikv): ' set1
 read -e -r -p 'Set the name of LIBRARY FOLDER: ' set2
+read -e -r -p 'Set the ports to talk to the client over (i.e. 3000 3001): ' set3
 source activate rampart
 cd $HOME/softwares/minion-seq/data/${set2}
 rampart \
+--ports ${set3} \
 --protocol /home/laisepaixao/softwares/minion-seq/rampart/${set1} \
 --title "ARTIC-RAMPART: Read Assignment, Mapping, and Phylogenetic Analysis in Real Time" \
 --basecalledPath $HOME/softwares/minion-seq/data/${set2}/fastq_pass \
