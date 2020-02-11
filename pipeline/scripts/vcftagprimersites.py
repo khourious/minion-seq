@@ -44,9 +44,4 @@ if __name__ == "__main__":
 		if v:
 			record.INFO['PRIMER'] = v["Sequence_(5-3')"]
 
-#	PP = list(record.INFO)
-#	record.INFO = {}
-#	record.INFO['PP'] = PP
-#	record.INFO['DEPTH'] = depths[record.CHROM][record.POS]
-
 		vcf_writer.write_record(record)

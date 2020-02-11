@@ -1,0 +1,2 @@
+#!/bin/bash
+while sleep 60; do clear; tail -n 25 $HOME/softwares/minion-seq/nohup.out; done

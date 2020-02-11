@@ -7,7 +7,6 @@ DEMUX_DIR = config['demux_dir']
 BASECALLED_READS = config['basecalled_reads']
 RAW_READS = config['raw_reads']
 BUILD_DIR = config['build_dir']
-PREFIX = config["prefix"]
 
 def get_minion_analysis():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['raw_reads'])
@@ -62,7 +61,7 @@ rule C_redemultiplex:
     output:
         directory("%s" % (DEMUX_DIR))
     shell:
-        "porechop --input %s/demux_guppy --threads 20 --barcode_dir %s --require_two_barcodes --discard_middle --check_reads 50000" % (RAW_READS, DEMUX_DIR)
+        "porechop --input %s/demux_guppy --threads 20 --barcode_dir %s --require_two_barcodes --discard_middle" % (RAW_READS, DEMUX_DIR)
 
 def _get_samples(wildcards):
     "Build a string of all samples that will be processed in a pipeline.py run"

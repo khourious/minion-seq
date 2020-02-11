@@ -1,2 +1,0 @@
-#!/bin/bash
-watch -n 10 tail -n 20 $HOME/softwares/minion-seq/nohup.out
