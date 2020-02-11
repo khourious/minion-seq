@@ -7,7 +7,6 @@ DEMUX_DIR = config['demux_dir']
 BASECALLED_READS = config['basecalled_reads']
 RAW_READS = config['raw_reads']
 BUILD_DIR = config['build_dir']
-PREFIX = config["prefix"]
 
 def get_minion_analysis():
     call = "find %s -name \"*.fast5\" | head -n 1" % (config['raw_reads'])

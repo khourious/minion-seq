@@ -1,13 +1,5 @@
 #!/usr/bin/env Rscript
 
-# To prepare libraries for this pipeline:
-#   1. poretools fasta --type 2D <path/to/base/called/reads/> > <name.fasta>
-#   2. bwa mem -x on2d <indexed_reference.fasta> <name.fasta> | samtools view -bS - | samtools sort -o <name.sorted.bam> -
-#   3. samtools depth <name.sorted.bam> > <name.coverage>
-#   3a.head <name.coverage> # This finds the name of the 'chromosome'; there may be >1
-#   4. awk '$1 == "<chromosomename>" {print $0}' <name.coverage> > chr1.coverage
-#
-
 library(optparse)
 library(reshape)
 

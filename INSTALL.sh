@@ -14,12 +14,12 @@ echo "Installing MinKNOW..."
 sudo apt update && sudo apt install minion-nc
 echo "Successfully installed MinKNOW!" && echo ""
 
-# Guppy CPU
+# Guppy
 if [ -z "$(which guppy_basecaller)" ]
 then
   echo "Downloading Guppy..."
-  curl https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_3.4.4_linux64.tar.gz --output $HOME/softwares/ont-guppy-cpu.tar.gz
-  curl https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy_3.4.4_linux64.tar.gz --output $HOME/softwares/ont-guppy-gpu.tar.gz
+  curl https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_3.4.5_linux64.tar.gz --output $HOME/softwares/ont-guppy-cpu.tar.gz
+  curl https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy_3.4.5_linux64.tar.gz --output $HOME/softwares/ont-guppy-gpu.tar.gz
   echo "Installing Guppy..."
   cd $HOME/softwares/ && tar -vzxf ont-guppy-cpu.tar.gz && mv ont-guppy-cpu/ guppy-cpu/ && rm -rf ont-guppy-cpu.tar.gz
   cd $HOME/softwares/ && tar -vzxf ont-guppy-gpu.tar.gz && mv ont-guppy/ guppy-gpu/ && rm -rf ont-guppy-gpu.tar.gz
