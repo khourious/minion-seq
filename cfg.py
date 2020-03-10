@@ -19,5 +19,7 @@ config = { 'raw_reads':
 
         }
 
-# Chikungunya: CHIKV_KP164568
-# Zika: ZIKV_KJ776791
+# Chikungunya Asian: CHIKV_KP164572
+# Chikungunya ECSA: CHIKV_KP164568
+# Zika African: ZIKV_NC_012532
+# Zika Asian: ZIKV_KJ776791

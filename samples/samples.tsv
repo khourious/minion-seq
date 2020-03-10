@@ -1,181 +1,241 @@
-sample_id	sample_type	country	division	location	collection_date	ct_value	yield
-ZK0152	urine	brazil	bahia	campo-formoso_tiquara	2016-04-09	26.38	25.20
-ZK0152	urine	brazil	bahia	campo-formoso_tiquara	2016-04-09	26.38	15.70
-ZIKA_03.1074	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	60.60
-ZIKA_03.1074	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	47.00
-ZIKA_03.0292	brain	brazil	bahia	salvador	2015-07-21	not-applicable	44.20
-ZIKA_03.0292	brain	brazil	bahia	salvador	2015-07-21	not-applicable	32.40
-ZIKA_03.0292_2	spinal-cord	brazil	bahia	salvador	2015-07-21	not-applicable	32.80
-ZIKA_03.0292_2	spinal-cord	brazil	bahia	salvador	2015-07-21	not-applicable	40.80
-ZIKA_03.0292_3	liquor	brazil	bahia	salvador	2015-07-21	not-applicable	23.80
-ZIKA_03.0292_3	liquor	brazil	bahia	salvador	2015-07-21	not-applicable	27.80
-ZIKA_03.0430	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	10.30
-ZIKA_03.0430	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	15.20
-ZIKA_03.0058	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	12.00
-ZIKA_03.0058	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	16.60
-ZIKA_03.0123	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	21.00
-ZIKA_03.0123	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	49.00
-ZK0099	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	33.38	5.70
-ZK0099	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	33.38	16.60
-ZIKA_03.0176	breast-milk	brazil	bahia	salvador	2016-09-28	not-applicable	too-low
-ZIKA_03.0176	breast-milk	brazil	bahia	salvador	2016-09-28	not-applicable	29.20
-ZK0075	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	13.00
-ZK0075	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	41.20
-ZK0110	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	26.05	86.40
-ZK0110	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	26.05	69.80
-ZK0111	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	25.66	22.40
-ZK0111	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	25.66	42.60
-ZK0128	whole-blood	brazil	bahia	campo-formoso	2016-04-08	36.88	11.20
-ZK0128	whole-blood	brazil	bahia	campo-formoso	2016-04-07	36.88	34.80
-ZK0141	whole-blood	brazil	bahsia	campo-formoso	2016-04-09	36.31	22.00
-ZK0141	whole-blood	brazil	bahia	campo-formoso	2016-04-09	36.31	48.60
-ZK0075_2	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	13.00
-ZK0075_2	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	41.20
-ZK0110_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	26.05	86.40
-ZK0110_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	26.05	69.80
-ZK0111_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	25.66	22.40
-ZK0111_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	25.66	42.60
-ZK0128_2	whole-blood	brazil	bahia	campo-formoso	2016-04-08	36.88	11.20
-ZK0128_2	whole-blood	brazil	bahia	campo-formoso	2016-04-07	36.88	34.80
-ZK0141_2	whole-blood	brazil	bahsia	campo-formoso	2016-04-09	36.31	22.00
-ZK0141_2	whole-blood	brazil	bahia	campo-formoso	2016-04-09	36.31	48.60
-ZK0085	plasma	brazil	bahia	campo-formoso_campo-de-aviao	2016-04-07	22.45	24.90
-ZK0085	plasma	brazil	bahia	campo-formoso_campo-de-aviao	2016-04-07	22.45	169.00
-ZK0046	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07	21.96	15.50
-ZK0046	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07	21.96	125.00
-ZK0145	plasma	brazil	bahia	campo-formoso_santa-luzia	2016-04-09	22.77	15.10
-ZK0145	plasma	brazil	bahia	campo-formoso_santa-luzia	2016-04-09	22.77	76.00
-ZK0135	plasma	brazil	bahia	campo-formoso_centro	2016-04-08	19.33	31.00
-ZK0135	plasma	brazil	bahia	campo-formoso_centro	2016-04-08	19.33	189.00
-ZK0171	plasma	brazil	bahia	itabuna_mangabinha	2016-04-28	22.36	34.40
-ZK0171	plasma	brazil	bahia	itabuna_mangabinha	2016-04-28	22.36	174.00
-ZIKA_03.0176_2	breast-milk	brazil	bahia	salvador	2016-09-28	not-applicable	too-low
-ZIKA_03.0176_2	breast-milk	brazil	bahia	salvador	2016-09-28	not-applicable	14.39
-ZK0075_3	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	13.00
-ZK0075_3	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	41.20
-ZK0099_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	38.98	19.00
-ZK0099_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	38.98	53.40
-ZK0110_3	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	26.05	75.09
-ZK0110_3	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	26.05	53.86
-ZK0152_2	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09	34.94	14.30
-ZK0152_2	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09	34.94	24.40
-ZK0038	plasma	brazil	piaui	teresina	2016-04-09	32.66	39.60
-ZK0038	plasma	brazil	piaui	teresina	2016-04-09	32.66	33.20
-ZK0066	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07	26.70	47.60
-ZK0066	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07	26.70	27.20
-ZK0143	plasma	brazil	bahia	campo-formoso_tombao	2016-04-08	20.73	92.40
-ZK0143	plasma	brazil	bahia	campo-formoso_tombao	2016-04-08	20.73	80.00
-ZK0180	plasma	brazil	bahia	itabuna_novo-jacana	2016-04-28	32.56	52.20
-ZK0180	plasma	brazil	bahia	itabuna_novo-jacana	2016-04-28	32.56	40.00
-ZK0186	plasma	brazil	bahia	itabuna_sao-caetano	2016-04-28	23.67	106.00
-ZK0186	plasma	brazil	bahia	itabuna_sao-caetano	2016-04-28	23.67	76.20
-ZK0162	plasma	brazil	bahia	campo-formoso_tiquara	2016-04-09	28.57	42.60
-ZK0162	plasma	brazil	bahia	campo-formoso_tiquara	2016-04-09	28.57	36.20
-ZK0302	plasma	brazil	bahia	maranguape_santos-dumont	2017-06-13	17.84	61.00
-ZK0302	plasma	brazil	bahia	maranguape_santos-dumont	2017-06-13	17.84	52.00
-ZK0329	plasma	brazil	bahia	maranguape_parque-sao-joao	2017-06-14	16.35	36.60
-ZK0329	plasma	brazil	bahia	maranguape_parque-sao-joao	2017-06-14	16.35	46.80
-ZK0339	plasma	brazil	bahia	maranguape_novo-maranguape-i	2017-06-14	17.78	11.70
-ZK0339	plasma	brazil	bahia	maranguape_novo-maranguape-i	2017-06-14	17.78	12.00
-ZK0597	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26	32.08	40.60
-ZK0597	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26	32.08	53.60
-TRDP173	plasma	brazil	bahia	salvador	2015-05-06	30.96	45.60
-TRDP173	plasma	brazil	bahia	salvador	2015-05-06	30.96	61.40
-TRDP238	plasma	brazil	bahia	salvador	2015-05-18	31.16	14.70
-TRDP238	plasma	brazil	bahia	salvador	2015-05-18	31.16	15.40
-TRDP252	plasma	brazil	bahia	salvador	2015-05-19	28.64	12.00
-TRDP252	plasma	brazil	bahia	salvador	2015-05-19	28.64	27.00
-TRDP256	plasma	brazil	bahia	salvador	2015-05-19	29.95	15.50
-TRDP256	plasma	brazil	bahia	salvador	2015-05-19	29.95	21.40
-TRDP274	plasma	brazil	bahia	salvador	2015-05-20	37.84	4.70
-TRDP274	plasma	brazil	bahia	salvador	2015-05-20	37.84	8.40
-TRDP282	plasma	brazil	bahia	salvador	2015-05-21	35.49	9.46
-TRDP282	plasma	brazil	bahia	salvador	2015-05-21	35.49	22.00
-TRDP300	plasma	brazil	bahia	salvador	2015-05-22	30.03	18.80
-TRDP300	plasma	brazil	bahia	salvador	2015-05-22	30.03	57.80
-TRDP309	plasma	brazil	bahia	salvador	2015-05-26	33.87	5.00
-TRDP309	plasma	brazil	bahia	salvador	2015-05-26	33.87	12.60
-TRDP317	plasma	brazil	bahia	salvador	2015-05-26	33.60	9.04
-TRDP317	plasma	brazil	bahia	salvador	2015-05-26	33.60	21.40
-TRDP333	plasma	brazil	bahia	salvador	2015-05-27	39.07	5.62
-TRDP333	plasma	brazil	bahia	salvador	2015-05-27	39.07	6.94
-TRDP257	plasma	brazil	bahia	salvador	2015-05-19	37.96	5.74
-TRDP257	plasma	brazil	bahia	salvador	2015-05-19	37.96	6.22
-TRDP433	plasma	brazil	bahia	salvador	2015-05-09	27.63	72.40
-TRDP433	plasma	brazil	bahia	salvador	2015-05-09	27.63	70.00
-ZK0099_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	33.38	5.76
-ZK0099_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	33.38	4.40
-ZK0111_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	undetermined	5.24
-ZK0111_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08	undetermined	4.98
-ZK0649	liquor	brazil	bahia	salvador	2019-04-08	not-applicable	7.94
-ZK0649	liquor	brazil	bahia	salvador	2019-04-08	not-applicable	5.20
-VIDEF2257	plasma	brazil	bahia	salvador	2019-07-25	21.74	31.20
-VIDEF2257	plasma	brazil	bahia	salvador	2019-07-25	21.74	21.80
-VIDEF2410	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20	18.60	41.20
-VIDEF2410	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20	18.60	20.20
-VIDEF2426	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23	16.39	29.20
-VIDEF2426	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23	16.39	21.20
-VIDEF2482	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02	20.51	35.20
-VIDEF2482	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02	20.51	25.80
-VIDEF2521	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10	17.95	28.80
-VIDEF2521	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10	17.95	31.00
-ZK0265	plasma	brazil	bahia	salvador	2016-10-03	32.65	3.34
-ZK0265	plasma	brazil	bahia	salvador	2016-10-03	32.65	3.56
-ZK0266	plasma	brazil	bahia	salvador	2016-10-03	31.22	6.94
-ZK0266	plasma	brazil	bahia	salvador	2016-10-03	31.22	3.32
-ZK0267	plasma	brazil	bahia	salvador	2016-10-04	xxxx	7.08
-ZK0267	plasma	brazil	bahia	salvador	2016-10-04	xxxx	2.54
-ZK0608	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26	xxxx	7.70
-ZK0608	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26	xxxx	8.54
-ZK0641R1	whole-blood	brazil	bahia	salvador_federacao	2019-06-14	xxxx	2.62
-ZK0641R1	whole-blood	brazil	bahia	salvador_federacao	2019-06-14	xxxx	4.84
-VIDEF2257_2	plasma	brazil	bahia	salvador	2019-07-25	21.74	33.80
-VIDEF2257_2	plasma	brazil	bahia	salvador	2019-07-25	21.74	52.60
-VIDEF2426_2	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20	16.39	49.43
-VIDEF2426_2	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23	16.39	47.20
-VIDEF2482_2	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02	20.51	35.20
-VIDEF2482_2	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02	20.51	25.80
-VIDEF2521_2	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10	17.95	40.00
-VIDEF2521_2	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10	17.95	43.20
-ZK0196	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28	26.93	4.56
-ZK0196	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28	26.93	34.60
-ZK0037	plasma	brazil	piaui	teresina	2016-04-09	34.20	19.10
-ZK0037	plasma	brazil	piaui	teresina	2016-04-09	34.20	34.00
-ZK0185	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28	29.48	7.70
-ZK0185	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28	29.48	10.20
-ZK0194	plasma	brazil	bahia	itabuna_sarinha-alcantara	2016-04-28	31.71	17.90
-ZK0194	plasma	brazil	bahia	itabuna_sarinha-alcantara	2016-04-28	31.71	6.54
-ZK0195	plasma	brazil	bahia	itabuna_ferradas	2016-04-28	25.38	39.40
-ZK0195	plasma	brazil	bahia	itabuna_ferradas	2016-04-28	25.38	36.60
-ZK0198	plasma	brazil	bahia	itabuna_urbis-iv	2016-04-28	19.07	43.80
-ZK0198	plasma	brazil	bahia	itabuna_urbis-iv	2016-04-28	19.07	55.40
-ZK0183	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28	37.87	2.88
-ZK0183	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28	37.87	5.26
-ZK0188	plasma	brazil	bahia	itabuna_vila-analia	2016-04-28	33.30	3.26
-ZK0188	plasma	brazil	bahia	itabuna_vila-analia	2016-04-28	33.30	8.50
-ZK0206	plasma	brazil	bahia	itabuna_ferradas	2016-04-28	34.95	4.20
-ZK0206	plasma	brazil	bahia	itabuna_ferradas	2016-04-28	34.95	9.50
-ZK0590	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25	19.34	44.00
-ZK0590	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25	19.34	68.40
-ZK0612	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25	32.90	3.36
-ZK0612	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25	32.90	3.08
-ZIKA_03.0430_2	amniotic-fluid	brazil	bahia	salvador	2016-09-28	not-applicable	51.40
-ZIKA_03.0430_2	amniotic-fluid	brazil	bahia	salvador	2016-09-28	not-applicable	72.80
-ZIKA_03.0123_2	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	43.40
-ZIKA_03.0123_2	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	56.80
-ZIKA_03.0292_4	spinal-cord	brazil	bahia	salvador	2015-07-21	not-applicable	82.20
-ZIKA_03.0292_4	spinal-cord	brazil	bahia	salvador	2015-07-21	not-applicable	86.60
-ZK0075_4	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	36.00
-ZK0075_4	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	70.40
-ZK0152_3	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09	34.94	30.20
-ZK0152_3	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09	34.94	59.80
-ZIKA_03.1074_2	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	128.00
-ZIKA_03.1074_2	placenta	brazil	bahia	salvador	2016-09-28	not-applicable	99.40
-ZIKA_03.0292_5	brain	brazil	bahia	salvador	2015-07-21	not-applicable	106.00
-ZIKA_03.0292_5	brain	brazil	bahia	salvador	2015-07-21	not-applicable	94.40
-ZIKA_03.0292_6	liquor	brazil	bahia	salvador	2015-07-21	not-applicable	65.00
-ZIKA_03.0292_6	liquor	brazil	bahia	salvador	2015-07-21	not-applicable	69.80
-ZIKA_02.0105	placenta	brazil	bahia	salvador	2016-09-28	33.61	8.28
-ZIKA_02.0105	placenta	brazil	bahia	salvador	2016-09-28	33.61	5.12
-ZK0075_5	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	36.00
-ZK0075_5	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07	34.82	70.40
+sample_id	sample_type	country	division	location	collection_date
+ZK0152	urine	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZK0152	urine	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZIKA_03.1074	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.1074	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0292	brain	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292	brain	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_2	spinal-cord	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_2	spinal-cord	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_3	liquor	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_3	liquor	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0430	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0430	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0058	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0058	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0123	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0123	placenta	brazil	bahia	salvador	2016-09-28
+ZK0099	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0099	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZIKA_03.0176	breast-milk	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0176	breast-milk	brazil	bahia	salvador	2016-09-28
+ZK0075	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0075	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0110	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0110	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0111	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0111	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0128	whole-blood	brazil	bahia	campo-formoso	2016-04-08
+ZK0128	whole-blood	brazil	bahia	campo-formoso	2016-04-07
+ZK0141	whole-blood	brazil	bahsia	campo-formoso	2016-04-09
+ZK0141	whole-blood	brazil	bahia	campo-formoso	2016-04-09
+ZK0075_2	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0075_2	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0110_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0110_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0111_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0111_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0128_2	whole-blood	brazil	bahia	campo-formoso	2016-04-08
+ZK0128_2	whole-blood	brazil	bahia	campo-formoso	2016-04-07
+ZK0141_2	whole-blood	brazil	bahsia	campo-formoso	2016-04-09
+ZK0141_2	whole-blood	brazil	bahia	campo-formoso	2016-04-09
+ZK0085	plasma	brazil	bahia	campo-formoso_campo-de-aviao	2016-04-07
+ZK0085	plasma	brazil	bahia	campo-formoso_campo-de-aviao	2016-04-07
+ZK0046	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0046	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0145	plasma	brazil	bahia	campo-formoso_santa-luzia	2016-04-09
+ZK0145	plasma	brazil	bahia	campo-formoso_santa-luzia	2016-04-09
+ZK0135	plasma	brazil	bahia	campo-formoso_centro	2016-04-08
+ZK0135	plasma	brazil	bahia	campo-formoso_centro	2016-04-08
+ZK0171	plasma	brazil	bahia	itabuna_mangabinha	2016-04-28
+ZK0171	plasma	brazil	bahia	itabuna_mangabinha	2016-04-28
+ZIKA_03.0176_2	breast-milk	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0176_2	breast-milk	brazil	bahia	salvador	2016-09-28
+ZK0075_3	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0075_3	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0099_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0099_2	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0110_3	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0110_3	whole-blood	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0152_2	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZK0152_2	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZK0038	plasma	brazil	piaui	teresina	2016-04-09
+ZK0038	plasma	brazil	piaui	teresina	2016-04-09
+ZK0066	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0066	plasma	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0143	plasma	brazil	bahia	campo-formoso_tombao	2016-04-08
+ZK0143	plasma	brazil	bahia	campo-formoso_tombao	2016-04-08
+ZK0180	plasma	brazil	bahia	itabuna_novo-jacana	2016-04-28
+ZK0180	plasma	brazil	bahia	itabuna_novo-jacana	2016-04-28
+ZK0186	plasma	brazil	bahia	itabuna_sao-caetano	2016-04-28
+ZK0186	plasma	brazil	bahia	itabuna_sao-caetano	2016-04-28
+ZK0162	plasma	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZK0162	plasma	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZK0302	plasma	brazil	bahia	maranguape_santos-dumont	2017-06-13
+ZK0302	plasma	brazil	bahia	maranguape_santos-dumont	2017-06-13
+ZK0329	plasma	brazil	bahia	maranguape_parque-sao-joao	2017-06-14
+ZK0329	plasma	brazil	bahia	maranguape_parque-sao-joao	2017-06-14
+ZK0339	plasma	brazil	bahia	maranguape_novo-maranguape-i	2017-06-14
+ZK0339	plasma	brazil	bahia	maranguape_novo-maranguape-i	2017-06-14
+ZK0597	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26
+ZK0597	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26
+TRDP173	plasma	brazil	bahia	salvador	2015-05-06
+TRDP173	plasma	brazil	bahia	salvador	2015-05-06
+TRDP238	plasma	brazil	bahia	salvador	2015-05-18
+TRDP238	plasma	brazil	bahia	salvador	2015-05-18
+TRDP252	plasma	brazil	bahia	salvador	2015-05-19
+TRDP252	plasma	brazil	bahia	salvador	2015-05-19
+TRDP256	plasma	brazil	bahia	salvador	2015-05-19
+TRDP256	plasma	brazil	bahia	salvador	2015-05-19
+TRDP274	plasma	brazil	bahia	salvador	2015-05-20
+TRDP274	plasma	brazil	bahia	salvador	2015-05-20
+TRDP282	plasma	brazil	bahia	salvador	2015-05-21
+TRDP282	plasma	brazil	bahia	salvador	2015-05-21
+TRDP300	plasma	brazil	bahia	salvador	2015-05-22
+TRDP300	plasma	brazil	bahia	salvador	2015-05-22
+TRDP309	plasma	brazil	bahia	salvador	2015-05-26
+TRDP309	plasma	brazil	bahia	salvador	2015-05-26
+TRDP317	plasma	brazil	bahia	salvador	2015-05-26
+TRDP317	plasma	brazil	bahia	salvador	2015-05-26
+TRDP333	plasma	brazil	bahia	salvador	2015-05-27
+TRDP333	plasma	brazil	bahia	salvador	2015-05-27
+TRDP257	plasma	brazil	bahia	salvador	2015-05-19
+TRDP257	plasma	brazil	bahia	salvador	2015-05-19
+TRDP433	plasma	brazil	bahia	salvador	2015-05-09
+TRDP433	plasma	brazil	bahia	salvador	2015-05-09
+ZK0099_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0099_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0111_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0111_3	plasma	brazil	bahia	campo-formoso_gameleira-do-dida	2016-04-08
+ZK0649	liquor	brazil	bahia	salvador	2019-04-08
+ZK0649	liquor	brazil	bahia	salvador	2019-04-08
+VIDEF2257	plasma	brazil	bahia	salvador	2019-07-25
+VIDEF2257	plasma	brazil	bahia	salvador	2019-07-25
+VIDEF2410	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20
+VIDEF2410	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20
+VIDEF2426	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23
+VIDEF2426	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23
+VIDEF2482	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02
+VIDEF2482	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02
+VIDEF2521	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10
+VIDEF2521	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10
+ZK0265	plasma	brazil	bahia	salvador	2016-10-03
+ZK0265	plasma	brazil	bahia	salvador	2016-10-03
+ZK0266	plasma	brazil	bahia	salvador	2016-10-03
+ZK0266	plasma	brazil	bahia	salvador	2016-10-03
+ZK0267	plasma	brazil	bahia	salvador	2016-10-04
+ZK0267	plasma	brazil	bahia	salvador	2016-10-04
+ZK0608	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26
+ZK0608	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26
+ZK0648R1	whole-blood	brazil	bahia	salvador_federacao	2019-06-14
+ZK0648R1	whole-blood	brazil	bahia	salvador_federacao	2019-06-14
+VIDEF2257_2	plasma	brazil	bahia	salvador	2019-07-25
+VIDEF2257_2	plasma	brazil	bahia	salvador	2019-07-25
+VIDEF2426_2	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23
+VIDEF2426_2	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23
+VIDEF2482_2	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02
+VIDEF2482_2	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02
+VIDEF2521_2	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10
+VIDEF2521_2	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10
+ZK0196	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0196	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0037	plasma	brazil	piaui	teresina	2016-04-09
+ZK0037	plasma	brazil	piaui	teresina	2016-04-09
+ZK0185	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28
+ZK0185	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28
+ZK0194	plasma	brazil	bahia	itabuna_sarinha-alcantara	2016-04-28
+ZK0194	plasma	brazil	bahia	itabuna_sarinha-alcantara	2016-04-28
+ZK0195	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0195	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0198	plasma	brazil	bahia	itabuna_urbis-iv	2016-04-28
+ZK0198	plasma	brazil	bahia	itabuna_urbis-iv	2016-04-28
+ZK0183	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0183	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0188	plasma	brazil	bahia	itabuna_vila-analia	2016-04-28
+ZK0188	plasma	brazil	bahia	itabuna_vila-analia	2016-04-28
+ZK0206	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0206	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0590	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25
+ZK0590	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25
+ZK0612	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25
+ZK0612	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25
+ZIKA_03.0430_2	amniotic-fluid	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0430_2	amniotic-fluid	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0123_2	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0123_2	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0292_4	spinal-cord	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_4	spinal-cord	brazil	bahia	salvador	2015-07-21
+ZK0075_4	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0075_4	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0152_3	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZK0152_3	whole-blood	brazil	bahia	campo-formoso_tiquara	2016-04-09
+ZIKA_03.1074_2	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.1074_2	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_03.0292_5	brain	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_5	brain	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_6	liquor	brazil	bahia	salvador	2015-07-21
+ZIKA_03.0292_6	liquor	brazil	bahia	salvador	2015-07-21
+ZIKA_02.0105	placenta	brazil	bahia	salvador	2016-09-28
+ZIKA_02.0105	placenta	brazil	bahia	salvador	2016-09-28
+ZK0075_5	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0075_5	whole-blood	brazil	bahia	campo-formoso_sao-tome	2016-04-07
+ZK0183_2	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0183_2	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0185_2	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28
+ZK0185_2	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28
+ZK0188_2	plasma	brazil	bahia	itabuna_vila-analia	2016-04-28
+ZK0188_2	plasma	brazil	bahia	itabuna_vila-analia	2016-04-28
+ZK0194_2	plasma	brazil	bahia	itabuna_sarinha-alcantara	2016-04-28
+ZK0194_2	plasma	brazil	bahia	itabuna_sarinha-alcantara	2016-04-28
+ZK0198_2	plasma	brazil	bahia	itabuna_urbis-iv	2016-04-28
+ZK0198_2	plasma	brazil	bahia	itabuna_urbis-iv	2016-04-28
+VIDEF2257_3	plasma	brazil	bahia	salvador	2019-07-25
+VIDEF2257_3	plasma	brazil	bahia	salvador	2019-07-25
+VIDEF2410_3	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20
+VIDEF2410_3	plasma	brazil	bahia	salvador_sao-marcos	2019-08-20
+VIDEF2426_3	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23
+VIDEF2426_3	plasma	brazil	bahia	salvador_sao-marcos	2019-08-23
+VIDEF2482_3	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02
+VIDEF2482_3	plasma	brazil	bahia	salvador_pau-da-lima	2019-09-02
+VIDEF2521_3	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10
+VIDEF2521_3	plasma	brazil	bahia	salvador_sao-marcos	2019-09-10
+ZK0195_2	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0195_2	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0196_2	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0196_2	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0037_2	plasma	brazil	piaui	teresina	2016-04-09
+ZK0037_2	plasma	brazil	piaui	teresina	2016-04-09
+ZK0267_2	plasma	brazil	bahia	salvador	2016-10-04
+ZK0267_2	plasma	brazil	bahia	salvador	2016-10-04
+ZK0339_2	plasma	brazil	bahia	maranguape_novo-maranguape-i	2017-06-14
+ZK0339_2	plasma	brazil	bahia	maranguape_novo-maranguape-i	2017-06-14
+ZK0037_3	plasma	brazil	piaui	teresina	2016-04-09
+ZK0037_3	plasma	brazil	piaui	teresina	2016-04-09
+ZK0185_3	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28
+ZK0185_3	plasma	brazil	bahia	itabuna_pedro-geronimo	2016-04-28
+ZK0195_3	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0195_3	plasma	brazil	bahia	itabuna_ferradas	2016-04-28
+ZK0196_3	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0196_3	plasma	brazil	bahia	itabuna_santo-antonio	2016-04-28
+ZK0608_2	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26
+ZK0608_2	plasma	brazil	bahia	coracao-de-maria_nova-esperanca	2018-08-26
+ZK0265_2	plasma	brazil	bahia	salvador	2016-10-03
+ZK0265_2	plasma	brazil	bahia	salvador	2016-10-03
+ZK0612_2	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25
+ZK0612_2	plasma	brazil	bahia	coracao-de-maria_centro	2018-08-25
+ZK0648R1_2	plasma	brazil	bahia	salvador_federacao	2019-06-14
+ZK0648R1_2	plasma	brazil	bahia	salvador_federacao	2019-06-14
+ZK0660	plasma	brazil	bahia	salvador	2020-01-21
+ZK0660	plasma	brazil	bahia	salvador	2020-01-21
+ZK0661	plasma	brazil	bahia	salvador_nova-brasilia	2020-01-21
+ZK0661	plasma	brazil	bahia	salvador_nova-brasilia	2020-01-21
+ZK0665	plasma	brazil	bahia	salvador_capeliha-de-sao_caetano	2020-01-29
+ZK0665	plasma	brazil	bahia	salvador_capeliha-de-sao_caetano	2020-01-29
+ZK0666	plasma	brazil	bahia	salvador_sussuarana	2020-02-10
+ZK0666	plasma	brazil	bahia	salvador_sussuarana	2020-02-10
+ZK0667	plasma	brazil	bahia	salvador_amaralina	2020-02-18
+ZK0667	plasma	brazil	bahia	salvador_amaralina	2020-02-18
+ZK0670	plasma	brazil	bahia	salvador_barra	2020-03-02
+ZK0670	plasma	brazil	bahia	salvador_barra	2020-03-02
+ZK0671	plasma	brazil	bahia	salvador_itapua	2020-03-02
+ZK0671	plasma	brazil	bahia	salvador_itapua	2020-03-02
