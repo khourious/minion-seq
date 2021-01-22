@@ -111,20 +111,6 @@ Must be `tsv` formatted. Keyed off of column headers rather than column order.
 
 ---
 
-7. xxx:
-* ``NOHUP_MINION_SEQ`` : 
-* ``TAIL_MINION_SEQ`` : 
-* ``ORGANIZE_MINION_SEQ_FILES`` : 
-
----
-
-8. xxx:
-* ``RAMPART_ANALYSIS`` : 
-* ``USER_CONF_MODIFY`` : 
-* ``USER_CONF_RECOVERY`` : 
-
----
-
 #### Inside the pipeline...
 
 When Guppy basecalls the raw `fast5` reads, it makes a workspace directory, which then contains a `pass` and a `fail` directory. Both the `pass` and the `fail` directory contain fastq files. The `fastq` in the pass directory contains the high quality reads (Q score >= 7), and the pipeline only uses this `fastq` files.
