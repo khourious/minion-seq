@@ -1,9 +1,5 @@
 # Bioinformatic pipeline for genome sequencing using MinION
 
-#### Laise de Moraes<sup>1</sup>, Felipe Torres<sup>1</sup>, Luciane Amorim<sup>1,2</sup>, Ricardo Khouri<sup>1,2,3</sup>
-
-###### <sup>1</sup>Fundação Oswaldo Cruz, Instituto Gonçalo Moniz, Laboratório de Enfermidades Infecciosas Transmitidas por Vetores, Salvador, Bahia, Brazil; <sup>2</sup>Universidade Federal da Bahia, Faculdade de Medicina da Bahia, Salvador, Bahia, Brazil; <sup>3</sup>KU Leuven, Department of Microbiology and Immunology, Rega Institute for Medical Research, Laboratory of Clinical and Epidemiological Virology, Leuven, Belgium
-
 This repo contains scripts and files to run the bioinformatic analysis of genome sequencing using MinION, and was built based on "[Experimental protocols and bioinformatic pipelines for Zika genome sequencing](https://github.com/blab/zika-seq)" of [Bedford Lab](https://bedford.io/projects/zika-seq).
 
 ---
