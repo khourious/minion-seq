@@ -1,4 +1,9 @@
-# Bioinformatic pipeline for genome sequencing using MinION
+# DEPRECATED
+
+**Oct 2022 update:** This repo is no longer supported, please consider using https://github.com/khourious/vigeas instead.
+
+
+## Bioinformatic pipeline for genome sequencing using MinION
 
 This repo contains scripts and files to run the bioinformatic analysis of genome sequencing using MinION, and was built based on "[Experimental protocols and bioinformatic pipelines for Zika genome sequencing](https://github.com/blab/zika-seq)" of [Bedford Lab](https://bedford.io/projects/zika-seq).
 
